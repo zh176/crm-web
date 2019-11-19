@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:03 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>添加服务</title>
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+	<link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        
+        <!-- Panel Other -->
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>添加客户</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#">选项1</a>
+                        </li>
+                        <li><a href="#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <!-- Example Events -->
+							<div class="example-wrap">
+								<form id="creat-form">
+									<table class="table table-bordered">
+										<tr>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">编号</span>
+											</th>
+											<td width="35%">
+												<input type="email" class="form-control input-sm" disabled value="编号由系统生成">
+											</td>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">服务类型</span>
+											</th>
+											<td width="35%" id="server-type">
+												<select name="type" class="form-control input-sm" style="height: 35px">
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">概要</span>
+											</th>
+											<td>
+												<input type="text" name="title" class="form-control input-sm" placeholder="概要">
+											</td>
+											<th style="background-color:#F5F5F6">
+
+											</th>
+											<td>
+
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">客户姓名</span>
+												<span id="quest-mes" style="color:red;margin-left: 30px"></span>
+											</th>
+											<td>
+												<input id="custName" type="text" name="custName" class="form-control input-sm" placeholder="客户姓名">
+												<input type="hidden" name="custNo" class="form-control input-sm">
+											</td>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">状态</span>
+											</th>
+											<td>
+												<input type="text" class="form-control input-sm" disabled value="新创建" />
+												<input type="hidden" name="status" class="form-control input-sm" value="server_create" />
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">服务请求</span>
+											</th>
+											<td colspan="3">
+												<textarea name="request" class="form-control" rows="3"></textarea>
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">创建人</span>
+											</th>
+											<td id="creater">
+												<input name="createName" type="email" class="form-control input-sm" disabled placeholder="创建人">
+												<input name="createId" type="hidden" value="">
+												<input name="createName" type="hidden" value="dddd">
+											</td>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">创建时间</span>
+											</th>
+											<td>
+												<input type="text" class="form-control input-sm" disabled value="创建时间" />
+											</td>
+										</tr>
+									</table>
+								</form>
+								<table class="table table-bordered">
+									<tr>
+										<th style="background-color:#F5F5F6" width="15%">
+											<span style="color:#000">分配给</span>
+										</th>
+										<td width="35%">
+											<select class="form-control input-sm" disabled>
+											  <option>小明</option>
+											  <option>小花</option>
+											</select>
+										</td>
+										<th style="background-color:#F5F5F6" width="15%">
+											<span style="color:#000">分配时间</span>
+										</th>
+										<td width="35%">
+											<input type="text" class="form-control input-sm" disabled />
+										</td>
+									</tr>
+								</table>
+								<table class="table table-bordered">
+									<tr>
+										<th style="background-color:#F5F5F6" width="15%">
+											<span style="color:#000">服务处理</span>
+										</th>
+										<td colspan="3" width="35%">
+											<textarea class="form-control" rows="3" disabled ></textarea>
+										</td>
+									</tr>
+									<tr>
+										<th style="background-color:#F5F5F6" width="15%">
+											<span style="color:#000">处理人</span>
+										</th>
+										<td  width="35%">
+											<input type="text" class="form-control input-sm" disabled />
+										</td>
+										<th style="background-color:#F5F5F6" width="15%">
+											<span style="color:#000">处理时间</span>
+										</th>
+										<td  width="35%">
+											<input type="text" class="form-control input-sm" disabled />
+										</td>
+									</tr>
+								</table>
+								<table class="table table-bordered">
+									<tr>
+										<th style="background-color:#F5F5F6" width="15%">
+											<span style="color:#000">处理结果</span>
+										</th>
+										<td  width="35%">
+											<input type="text" class="form-control input-sm" disabled />
+										</td>
+										<th style="background-color:#F5F5F6" width="15%">
+											<span style="color:#000">满意度</span>
+										</th>
+										<td  width="35%">
+											<select class="form-control input-sm" disabled >
+											  <option value="5">☆☆☆☆☆</option>
+											  <option value="4">☆☆☆☆</option>
+											  <option value="3">☆☆☆</option>
+											  <option value="2">☆☆</option>
+											  <option value="1">☆☆</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="4">
+											<div class="pull-right">
+												<input type="button" id="submit-btn"  class="btn btn-info" value="保存"/>
+											</div>
+										</td>
+									</tr>
+								</table>
+
+							</div>
+                        </div>
+                        <!-- End Example Events -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Panel Other -->
+    </div>
+	
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="js/demo/bootstrap-table-demo.min.js"></script>
+	<script src="js/utils.js"></script>
+
+	<script>
+		//获取用户信息
+		var token = cookie.get("token");
+		console.log(token);
+		if (token != undefined){
+			var payload = parsePayload(token);
+			console.log(payload);
+			$("#creater input:nth-child(2)").val(payload.userId);
+			$("#creater input:nth-child(3)").val(payload.userName);
+			$("#creater input:nth-child(1)").val(payload.userName);
+		} else {
+			window.location.href = "login.html";
+			window.event.returnValue = false;
+		}
+
+		//渲染服务类型下拉框
+		$.get("/dic/server_type",function (res) {
+			console.log(res);
+			var data = "";
+			$.each(res.data,function (i,v) {
+				data += `
+							<option value="${v.valueId}">${v.valueName}</option>
+						`
+			});
+			$(data).appendTo($("#server-type select"));
+		});
+		//创建服务
+		$("#submit-btn").click(function () {
+			var ary = $("#creat-form").serializeArray();
+			var param = formToJson(ary);
+
+			$.ajax({
+				//http://127.0.0.1:8080/
+				url:"/server/add",
+				type:"POST",
+				headers:{'Authorization':''+getToken()+''},
+				data:param,
+				success:function (res) {
+					if (res.code == 401){
+						console.log("toke失效");
+						window.location.href = "login.html";
+						window.event.returnValue = false;
+						return false;
+					}
+					if (res.code == 1){
+						if (res.data) {
+							swal("添加成功！", "",
+									"success"
+							)
+							$("#creat-form input[type='text']").val("");
+							$("#creat-form textarea").val("");
+						}
+					}
+				}
+			});
+		});
+		$("#custName").blur(function () {
+			var custName = $(this).val();
+			console.log(custName);
+			if (custName!=""){
+				$.ajaxSettings.async = false;
+
+				$.ajax({
+					//http://127.0.0.1:8080/
+					url:"/client/id/"+custName,
+					type:"GET",
+					headers:{'Authorization':''+getToken()+''},
+					success:function (res) {
+						if (res.code == 401){
+							console.log("toke失效");
+							window.location.href = "login.html";
+							window.event.returnValue = false;
+							return false;
+						}
+						if (res.code == 1){
+							if (res.data==null || res.data==""){
+								$("#quest-mes").text("客户姓名不存在")
+								// $("#custName").css({'border-color':'red'});
+								$("#submit-btn").addClass("disable")
+							}else {
+								$("#quest-mes").text("");
+
+								$("#custName").next().val(res.data);
+							}
+						}
+					}
+				});
+				$.ajaxSettings.async = true;
+				return true
+			}
+			$(this).css({'border-color':'red'});
+			$("#quest-mes").text("客户姓名不能为空")
+			$("#submit-btn").addClass("disable")
+		});
+	</script>
+</body>
+</html>

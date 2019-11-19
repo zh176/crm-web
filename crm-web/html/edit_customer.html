@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:03 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>客户信息管理</title>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        
+        <!-- Panel Other -->
+        <div class="ibox float-e-margins">
+			<form id="updForm">
+				<div class="ibox-title">
+					<h5>修改客户</h5>
+					<div class="ibox-tools">
+						<a class="collapse-link">
+							<i class="fa fa-chevron-up"></i>
+						</a>
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							<i class="fa fa-wrench"></i>
+						</a>
+						<ul class="dropdown-menu dropdown-user">
+							<li><a href="#">选项1</a>
+							</li>
+							<li><a href="#">选项2</a>
+							</li>
+						</ul>
+						<a class="close-link">
+							<i class="fa fa-times"></i>
+						</a>
+					</div>
+				</div>
+				<div class="ibox-content">
+					<div class="row row-lg">
+
+
+						<div class="col-sm-12">
+							<!-- Example Events -->
+							<div class="example-wrap">
+								<div class="example">
+									<div class="btn-group hidden-xs pull-right" id="exampleTableEventsToolbar" role="group">
+										<a href="customer_info.html">
+											<button type="button" class="btn btn-outline btn-default">
+												<i href="javascript:history.back(-1)" class="glyphicon glyphicon-arrow-left" aria-hidden="true" style="color:blue"></i>
+												返回
+											</button>
+										</a>
+									</div>
+
+									<table class="table table-bordered">
+										<tr>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">客户编号</span>
+											</th>
+											<td width="35%">
+												<input type="text"class="form-control input-sm" disabled placeholder="客户编号不能修改">
+												<input type="hidden" name="no">
+											</td>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">客户名称</span>
+											</th>
+											<td width="35%">
+												<input type="text" name="name" class="form-control input-sm">
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">地区</span>
+											</th>
+											<td>
+												<select name="region" class="form-control input-sm" style="height: 35px;">
+												</select>
+											</td>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">客户经理</span>
+											</th>
+											<td>
+												<select name="managerName" class="form-control input-sm" style="height: 35px">
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">客户等级</span>
+											</th>
+											<td>
+												<select name="level" class="form-control input-sm" style="height: 34px">
+													<option value="0">全部</option>
+													<option value="1">战略合作伙伴</option>
+													<option value="2">合作伙伴</option>
+												</select>
+											</td>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000"></span>
+											</th>
+											<td>
+
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">客户满意度</span>
+											</th>
+											<td>
+												<select name="satisfy" class="form-control input-sm">
+													<option value="5">☆☆☆☆☆</option>
+													<option value="4">☆☆☆☆</option>
+													<option value="3">☆☆☆</option>
+													<option value="2">☆☆</option>
+													<option value="1">☆</option>
+												</select>
+											</td>
+											<th  style="background-color:#F5F5F6">
+												<span style="color:#000">客户信用度</span>
+											</th>
+											<td>
+												<select name="credit" class="form-control input-sm">
+													<option value="5">☆☆☆☆☆</option>
+													<option value="4">☆☆☆☆</option>
+													<option value="3">☆☆☆</option>
+													<option value="2">☆☆</option>
+													<option value="1">☆</option>
+												</select>
+											</td>
+										</tr>
+									</table>
+
+									<table class="table table-bordered">
+										<tr>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">地址</span>
+											</th>
+											<td width="35%">
+												<input type="text" name="addr" class="form-control input-sm">
+											</td>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">邮政编码</span>
+											</th>
+											<td width="35%">
+												<input type="text" name="zip" class="form-control input-sm">
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">电话</span>
+											</th>
+											<td>
+												<input type="text" name="tel" class="form-control input-sm">
+											</td>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">传真</span>
+											</th>
+											<td>
+												<input type="text" name="fax" class="form-control input-sm">
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">网址</span>
+											</th>
+											<td>
+												<input type="text" name="website" class="form-control input-sm" >
+											</td>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000"></span>
+											</th>
+											<td>
+
+											</td>
+										</tr>
+									</table>
+
+									<table class="table table-bordered">
+										<tr>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">营业执照注册号</span>
+											</th>
+											<td  width="35%">
+												<input type="text" name="licenceNo" class="form-control input-sm" >
+											</td>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">法人</span>
+											</th>
+											<td  width="35%">
+												<input type="text" name="chieftain" class="form-control input-sm">
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">注册资金（万元）</span>
+											</th>
+											<td  width="35%">
+												<input type="text" name="bankroll" class="form-control input-sm">
+											</td>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">年营业额</span>
+											</th>
+											<td  width="35%">
+												<input type="text" name="turnover" class="form-control input-sm" >
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">开户银行</span>
+											</th>
+											<td  width="35%">
+												<input type="text" name="bank" class="form-control input-sm" >
+											</td>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">银行帐号</span>
+											</th>
+											<td  width="35%">
+												<input type="text" name="bankAccount" class="form-control input-sm">
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">国税登记号</span>
+											</th>
+											<td  width="35%">
+												<input type="text" name="nationalTaxNo" class="form-control input-sm" >
+											</td>
+										</tr>
+										<tr>
+											<td colspan="4">
+												<div class="pull-right">
+													<button type="submit" class="btn btn-info">保存</button>
+												</div>
+											</td>
+										</tr>
+									</table>
+
+								</div>
+							</div>
+							<!-- End Example Events -->
+						</div>
+					</div>
+				</div>
+			</form>
+
+
+        </div>
+        <!-- End Panel Other -->
+    </div>
+	
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="js/demo/bootstrap-table-demo.min.js"></script>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+	<script src="js/utils.js"></script>
+	<link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+
+	<script>
+		//渲染地区列表
+		$.get("/dic/region_type",function (res) {
+			var data = "";
+			$.each(res.data,function (i,v) {
+				data += `
+					<option value="${v.valueId}">${v.valueName}</option>
+				`
+			});
+			$(data).appendTo($("#updForm select[name='region']"));
+		});
+		//渲染客户经理列表
+		var clientManger = getUSerByRoleId(3);
+		$(clientManger).appendTo($("#updForm select[name='managerName']"));
+
+		$.ajax({
+			//http://127.0.0.1:8080/
+			url:"/client/get/"+cookie.get("clientId"),
+			type:"GET",
+			headers:{'Authorization':''+getToken()+''},
+			success:function (result) {
+				if (result.code == 401){
+					window.location.href = "login.html";
+					window.event.returnValue = false;
+					return false;
+				}
+				if (result.code == 1){
+					console.log(result.data);
+					if(result.data!="null"){
+						var clientId = result.data;
+						$("#updForm input[name='no']").val(clientId.no);
+						$("#updForm input[name='name']").val(clientId.name);
+						$("#updForm select[name='region']").val(clientId.region);
+						$("#updForm select[name='managerName']").val(clientId.managerName);
+						$("#updForm select[name='level']").val(clientId.level);
+						$("#updForm select[name='satisfy']").val(clientId.satisfy);
+						$("#updForm select[name='credit']").val(clientId.credit);
+						$("#updForm input[name='addr']").val(clientId.addr);
+						$("#updForm input[name='zip']").val(clientId.zip);
+						$("#updForm input[name='tel']").val(clientId.tel);
+						$("#updForm input[name='fax']").val(clientId.fax);
+						$("#updForm input[name='website']").val(clientId.website);
+						$("#updForm input[name='licenceNo']").val(clientId.licenceNo);
+						$("#updForm input[name='chieftain']").val(clientId.chieftain);
+						$("#updForm input[name='bankroll']").val(clientId.bankroll);
+						$("#updForm input[name='turnover']").val(clientId.turnover);
+						$("#updForm input[name='bank']").val(clientId.bank);
+						$("#updForm input[name='bankAccount']").val(clientId.bankAccount);
+						$("#updForm input[name='nationalTaxNo']").val(clientId.nationalTaxNo);
+					}
+				}
+			}
+		});
+
+        $("#updForm").submit(function () {
+			var data=$("#updForm").serializeArray();
+			var data2=formToJson(data);
+			console.log(data2)
+			$.ajax({
+				type:"put",
+				url:"/client/update",
+				headers:{'Authorization':''+getToken()+''},
+				contentType:"application/json",
+				dataType:"json",
+				data:JSON.stringify(data2),
+				success:function (result) {
+					if (result.data) {
+						swal("保存成功！","3秒后页面返回",
+								"success"
+						)
+						setTimeout(function () {
+							window.location.href = "customer_info.html"
+						},3000);
+					}
+                }
+			})
+			return false;
+        })
+	</script>
+</body>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:06 GMT -->
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:03 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>H+ 后台主题UI框架 - Bootstrap Table</title>
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    
+	<link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		function isSuc() {
+			swal("开发成功",
+				 "您已经成功开发。",
+				 "success"
+				)
+		};
+	</script>
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        
+        <!-- Panel Other -->
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>执行开发计划</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#">选项1</a>
+                        </li>
+                        <li><a href="#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    
+
+                    <div class="col-sm-12">
+                        <!-- Example Events -->
+                        <div class="example-wrap">
+                            <div class="example">
+								<div class="btn-group hidden-xs pull-right" id="exampleTableEventsToolbar" role="group">
+									<button type="button" class="btn btn-outline btn-default">
+										<i class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red"></i>
+										终止开发
+									</button>
+									<button type="button" class="btn btn-outline btn-default">
+										<i class="glyphicon glyphicon-arrow-left" aria-hidden="true" style="color:blue"></i>
+										返回
+									</button>
+									<a type="button" href="formulate_customer_develop.html" class="btn btn-outline btn-default">
+										<i class="glyphicon glyphicon-import" aria-hidden="true" style="color:#CC6600"></i>
+										制定计划
+									</a>
+									<button type="button" class="btn btn-outline btn-default">
+										<i class="glyphicon glyphicon-ok-sign" aria-hidden="true" style="color:#3399ff"></i>
+										开发成功
+									</button>
+								</div>
+                                
+								<table class="table table-bordered">
+									<tr>
+										<th style="background-color:#F5F5F6" width="15%">
+											<span style="color:#000">编号</span>
+										</th>
+										<td  width="35%">
+											1
+										</td>
+										<th style="background-color:#F5F5F6" width="15%">
+											<span style="color:#000">机会来源</span>
+										</th>
+										<td  width="35%">
+											来自中国
+										</td>
+									</tr>
+									<tr>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">客户名称</span>
+										</th>
+										<td>
+											睿智数码
+										</td>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">成功几率</span>
+										</th>
+										<td>
+											80%
+										</td>
+									</tr>
+									<tr>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">概要</span>
+										</th>
+										<td>
+											这是一个机会概要
+										</td>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">机会描述</span>
+										</th>
+										<td>
+											这是一个机会描述
+										</td>
+									</tr>
+									<tr>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">联系人</span>
+										</th>
+										<td>
+											王先生
+										</td>
+										<th  style="background-color:#F5F5F6">
+											<span style="color:#000">联系人电话</span>
+										</th>
+										<td>
+											135885688549
+										</td>
+									</tr>
+									<tr>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">创建人</span>
+										</th>
+										<td>
+											拉拉
+										</td>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">创建时间</span>
+										</th>
+										<td>
+											2016年12月06号
+										</td>
+									</tr>
+								</table>
+								
+								<table class="table table-bordered">
+									
+									<thead>
+										<tr>
+											<th>日期</th>
+											<th>计划项</th>
+											<th>执行效果</th>												
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th width="15%">
+												<span style="color:#000">2016年12月06号</span>
+											</th>
+											<th>
+												<span style="color:#000">初步接触，了解客户意向。</span>
+											</th>
+											<td>
+												<div class="row">
+													<div class="col-sm-9">
+														<input type="text" class="form-control input-sm">
+													</div>
+													<div class="col-sm-3">
+														<input onclick="isSuc();" type="button" class="btn btn-info btn-sm" value="保存">
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th>
+												<span style="color:#000">2016年12月06号</span>
+											</th>
+											<th>
+												<span style="color:#000">推介产品。</span>
+											</th>
+											<td>
+												<div class="row">
+													<div class="col-sm-9">
+														<input type="text" class="form-control input-sm">
+													</div>
+													<div class="col-sm-3">
+														<input type="button" class="btn btn-info btn-sm" value="保存">
+													</div>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								
+                            </div>
+                        </div>
+                        <!-- End Example Events -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Panel Other -->
+    </div>
+	
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="js/demo/bootstrap-table-demo.min.js"></script>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+</body>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:06 GMT -->
+</html>

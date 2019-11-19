@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/timeline_v2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:19:47 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>H+ 后台主题UI框架 - 时间轴</title>
+
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+	
+	<link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script type="text/javascript">
+		function isDel() {
+			swal({title:"您确定要删除这条信息吗",
+				      text:"删除后将无法恢复，请谨慎操作！",
+					  type:"warning",
+					  showCancelButton:true,
+					  confirmButtonColor:"#DD6B55",
+					  confirmButtonText:"确定",
+					  cancelButtonText:"取消",
+					  closeOnConfirm:false,
+					  closeOnCancel:false},
+					  function(isConfirm){
+						if(isConfirm){
+							swal("删除成功！","您已经永久删除了这条信息。",
+								 "success"
+							)
+						}else{
+							swal("已取消",
+							     "您取消了删除操作！","error"
+							)
+						}
+					}
+				)
+		};
+	</script>
+	
+	<script type="text/javascript">
+		function addContact(){
+			$("#contact_title").html("新增交往记录")
+			$("#myModal3").modal("show");
+		}
+		function udpateContact(){
+			$("#contact_title").html("修改交往记录")
+			$("#myModal3").modal("show");
+		}
+	</script>
+	
+</head>
+
+<body class="gray-bg">
+	
+	<div class="wrapper wrapper-content animated fadeInRight">
+        <!-- Panel Other -->
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>客户交往记录</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#">选项1</a>
+                        </li>
+                        <li><a href="#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content" style="background-color:#F3F3F4">
+                <div class="row row-lg">
+                    
+
+                    <div class="col-sm-12">
+                        <!-- Example Events -->
+                        <div class="example-wrap">
+                            <div class="example">
+	<div class="btn-group hidden-xs pull-right" id="exampleTableEventsToolbar" role="group">
+		<button type="button" class="btn btn-outline btn-default" style="background-color:#fff">
+			<i class="glyphicon glyphicon-arrow-left" aria-hidden="true" style="color:blue"></i>
+			返回
+		</button>
+		<a type="button" onclick="addContact();" class="btn btn-outline btn-default"  style="background-color:#fff">
+			<i class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#CC6600"></i>
+			新增交往
+		</a>
+	</div>
+	
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="wrapper wrapper-content">
+                <div class="row animated fadeInRight">
+                    <div class="col-sm-12">
+                        <div class="ibox float-e-margins">
+                            <div class="text-center float-e-margins p-md" style="padding-top:0px">
+                                <span>预览：</span>
+                                <a href="#" class="btn btn-xs btn-primary" id="lightVersion">浅色</a>
+                                <a href="#" class="btn btn-xs btn-primary" id="darkVersion">深色</a>
+                                <a href="#" class="btn btn-xs btn-primary" id="leftVersion">布局切换</a>
+                            </div>
+                            <div class="" id="ibox-content">
+
+                                <div id="vertical-timeline" class="vertical-container light-timeline">
+                                    
+									<div class="vertical-timeline-block">
+                                        <div class="vertical-timeline-icon navy-bg">
+                                            <i class="fa fa-briefcase"></i>
+                                        </div>
+
+                                        <div class="vertical-timeline-content">
+                                            <h2>签订意向协议
+												<span style="font-size:14px">
+													<span class="glyphicon glyphicon-globe"></span>
+													地点:友谊宾馆
+												</span>
+											</h2>
+                                            <p>上一年的销售业绩发布会。总结产品营销和销售趋势及销售的现状。
+                                            </p>
+											<a onclick="isDel();" class="btn btn-sm btn-danger">删除</a>
+                                            <a onclick="udpateContact();" class="btn btn-sm btn-primary">修改</a>
+                                            <span class="vertical-date">
+                                        2016年<br>
+                                        <small>2月3日</small>
+                                    </span>
+                                        </div>
+                                    </div>
+									
+									<div class="vertical-timeline-block">
+                                        <div class="vertical-timeline-icon navy-bg">
+                                            <i class="fa fa-briefcase"></i>
+                                        </div>
+
+                                        <div class="vertical-timeline-content">
+                                            <h2>2008年行业展望座谈会
+												<span style="font-size:14px">
+													<span class="glyphicon glyphicon-globe"></span>
+													地点:公司
+												</span>
+											</h2>
+                                            <p>上一年的销售业绩发布会。总结产品营销和销售趋势及销售的现状。
+                                            </p>
+											<a onclick="isDel();" class="btn btn-sm btn-danger">删除</a>
+                                            <a onclick="udpateContact();" class="btn btn-sm btn-primary">修改</a>
+                                            <span class="vertical-date">
+                                        2016年<br>
+                                        <small>8月3日</small>
+                                    </span>
+                                        </div>
+                                    </div>
+
+                                    
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	
+	<!-- ****************************新增交往框**************************** -->
+	<div class="modal inmodal" id="myModal3" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" style="width:400px;margin-top:65px;">
+			<div class="modal-content animated flipInY">
+				<div class="modal-header" style="height:50px;padding-top:15px;">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+					<div class="pull-left"><h4 id="contact_title">新增交往记录</h4></div>
+				</div>
+				<div class="modal-body" style="background-color:#fff;padding-bottom:0px;padding-top:10px;">
+					<form>
+                            <div class="form-group">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >时间</span>
+                                    <input type="date" class="form-control" placeholder="时间"/>
+                                </div>
+                            </div>
+                            <div class="form-group" style="width:150px">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >地点</span>
+                                    <input type="text" class="form-control" placeholder="地点"/>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" style="width:150px">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >概要</span>
+                                    <input type="text" 
+                                    	   class="form-control" 
+                                           placeholder="概要"/>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group form-group-sm">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >备注</span>
+                                    <input type="text" class="form-control" placeholder="备注"/>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group form-group-sm">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >详细信息</span>
+                                    <textarea class="form-control" rows="4"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group form-group-sm">
+                                <input type="submit" class="btn btn-info" value="保存">
+                            </div>
+                            
+                        </form> 
+				</div>
+			</div>
+		</div>
+	
+	<!-- ****************************新增交往框结束**************************** -->
+	
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script>
+        $(document).ready(function(){$("#lightVersion").click(function(event){event.preventDefault();$("#ibox-content").removeClass("ibox-content");$("#vertical-timeline").removeClass("dark-timeline");$("#vertical-timeline").addClass("light-timeline")});$("#darkVersion").click(function(event){event.preventDefault();$("#ibox-content").addClass("ibox-content");$("#vertical-timeline").removeClass("light-timeline");$("#vertical-timeline").addClass("dark-timeline")});$("#leftVersion").click(function(event){event.preventDefault();$("#vertical-timeline").toggleClass("center-orientation")})});
+    </script>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+</body>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/timeline_v2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:19:47 GMT -->
+</html>

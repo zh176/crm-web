@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:03 GMT -->
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<title>服务反馈</title>
+	<meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+	<meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+	<link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+	<link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+	<link href="css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+	<link href="css/animate.min.css" rel="stylesheet">
+	<link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+
+
+</head>
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+
+	<!-- Panel Other -->
+	<div class="ibox float-e-margins">
+		<div class="ibox-title">
+			<h5>服务反馈详情</h5>
+			<div class="ibox-tools">
+				<a class="collapse-link">
+					<i class="fa fa-chevron-up"></i>
+				</a>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+					<i class="fa fa-wrench"></i>
+				</a>
+				<ul class="dropdown-menu dropdown-user">
+					<li><a href="#">选项1</a>
+					</li>
+					<li><a href="#">选项2</a>
+					</li>
+				</ul>
+				<a class="close-link">
+					<i class="fa fa-times"></i>
+				</a>
+			</div>
+		</div>
+		<div class="ibox-content">
+			<div class="row row-lg">
+
+
+				<div class="col-sm-12">
+					<!-- Example Events -->
+					<div class="example-wrap">
+						<div class="example">
+							<div style="margin-bottom:15px;border-bottom:1px solid #E7EAEC;padding-bottom:8px;">
+								<form id="search-form">
+									<table>
+										<tr>
+											<th width="5%">
+												<span style="color:#000">客户姓名</span>
+											</th>
+											<td width="15%">
+												<input type="email" name="custNmae" class="form-control input-sm" placeholder="客户">
+											</td>
+											<th width="5%">
+												<span style="color:#000">&nbsp;&nbsp;&nbsp;&nbsp;概要</span>
+											</th>
+											<td  width="15%">
+												<input type="email" name="title" class="form-control input-sm" placeholder="概要">
+											</td>
+											<th width="5%">
+												<span style="color:#000">&nbsp;&nbsp;&nbsp;&nbsp;服务类型</span>
+											</th>
+											<td id="server-type" width="15%">
+												<select name="type" class="form-control input-sm" style="height: 35px">
+													<option value="" selected>全部</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th>
+												<span style="color:#000">创建时间</span>
+											</th>
+											<td>
+												<div class="row">
+													<div class="col-sm-6">
+														<input name="startTime" class="form-control layer-date" placeholder="开始时间" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+													</div>
+													<div class="col-sm-6">
+														<input name="endTime" class="form-control layer-date" placeholder="结束时间" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+													</div>
+												</div>
+											</td>
+											<th>
+												<span style="color:#000">&nbsp;&nbsp;&nbsp;&nbsp;状态</span>
+											</th>
+											<td id="server-state">
+												<select name="state" class="form-control input-sm" style="height: 35px">
+													<option selected value="server_dispose">已处理</option>
+												</select>
+											</td>
+											<td colspan="2">
+												<div class="btn-group hidden-xs pull-right" style="margin-top:5px;" id="exampleTableEventsToolbar" role="group">
+													<button id="search-btn" type="button" class="btn btn-outline btn-default">
+														<i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+														搜索
+													</button>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</form>
+							</div>
+							<table class="table table-bordered table-hover"
+								   data-height="400"
+								   style="margin-bottom:0px"
+								   data-mobile-responsive="true">
+								<thead>
+								<tr>
+									<th>编号</th>
+									<th>客户</th>
+									<th>概要</th>
+									<th>服务类型</th>
+									<th>创建人</th>
+									<th>创建时间</th>
+									<th>
+										<div align="center">操作</div>
+									</th>
+								</tr>
+								</thead>
+								<tbody id="dataRow">
+								</tbody>
+							</table>
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="pull-left" style="margin-top:15px">
+										<p>显示 1 到 10 项，共 <lable id="pageSize">25</lable> 项</p>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="pull-right">
+										<ul class="pagination">
+											<li class="prev"><a>«</a></li>
+											<li  class="next"><a>»</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<!-- End Example Events -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Panel Other -->
+</div>
+
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script src="js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script src="js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="js/demo/bootstrap-table-demo.min.js"></script>
+<script src="js/plugins/layer/laydate/laydate.js"></script>
+<link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+<script src="js/utils.js"></script>
+
+<script>
+
+
+	window.addEventListener("popstate", function(e) {
+		alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能
+	}, false);
+
+
+	//获取员工
+	function getStaff(){
+		var data = "";
+		$.get("http://127.0.0.1:8080/user/role/"+4,function (res) {
+			$.each(res.data,function (i,v) {
+				data += `
+					<option value="${v.id}">${v.name}</option>
+				`;
+			});
+
+		});
+		return data;
+	}
+	page(1);
+	//-------------翻页
+	function page(pageIndex) {
+		if (isNaN(pageIndex)){
+			return false;
+		}
+		var str = $("#search-form").serializeArray();
+		var condition = JSON.stringify(formToJson(str));
+		var pageSize = 10;
+		var pageParam = {
+			"pageIndex":pageIndex,
+			"pageSize":pageSize,
+			"condition":condition
+		};
+		console.log(pageParam);
+		$.ajaxSettings.async = false;
+
+		$.ajax({
+			//http://127.0.0.1:8080/
+			url: "/server/all",
+			type: "GET",
+			headers: {'Authorization': '' + getToken() + ''},
+			data: pageParam,
+			success: function (result) {
+				console.log(result);
+				if (result.code == 401) {
+					console.log("toke失效");
+					window.location.href = "login.html";
+					window.event.returnValue = false;
+					return false;
+				}
+				if (result.code == 1) {
+					var data = result.data;
+					//---------------------渲染数据
+					var tableData = "";
+					var staff = getStaff();
+					$.each(data.records,function (i,v) {
+						tableData += `
+                        <tr>
+							<td>${i+1}</td>
+							<td>${v.custName}</td>
+							<td>${v.title}</td>
+							<td>${v.type}</td>
+							<td>${v.createName}</td>
+							<td>${new Date(v.createDate).Format("yyyy-MM-dd")}</td>
+							<td align="center">
+								<div>
+									<a href="feedback_detail_service.html" title="处理" style="color:#9999cc">
+										<i data-id="${v.id}" class="glyphicon glyphicon-cog feedback" aria-hidden="true"></i>
+									</a>
+								</div>
+							</td>
+						</tr>
+                    `;
+
+					});
+					$.ajaxSettings.async = true;
+					$("#dataRow").empty();
+					$(tableData).appendTo($("#dataRow"))
+
+					//---------------------渲染分页按钮
+					var dataCount = data.total;
+					var pageSize = data.pageSize
+					var len = 0;
+					if ((dataCount%pageSize)==0){
+						len = parseInt(dataCount/pageSize);
+					}else {
+						len =parseInt((dataCount/pageSize)+1)
+					}
+					//拼接的字符串
+					var strData = "";
+					if (Number(pageIndex)+2<=len && pageIndex-2>=1){
+						strData += `
+                        <li class="page"><a>${pageIndex-2}</a></li>
+                        <li class="page"><a>${pageIndex-1}</a></li>
+                        <li class="active page"><a>${pageIndex}</a></li>
+                        <li class="page"><a>${Number(pageIndex)+Number(1)}</a></li>
+                        <li class="page"><a>${Number(pageIndex)+Number(2)}</a></li>
+
+                    `;
+					}else {
+						var i = pageIndex;
+						if (Number(i)+5>len){
+							i=len-4;
+						}
+						if (len-5<=1){
+							i=1;
+						}
+						for (;i<Number(pageIndex)+5 & i<=len;i++){
+							if (i==data.pageIndex){
+								strData+= `
+                         <li class="active page"><a>${i}</a></li>
+                    `
+							}else {
+								strData+= `
+                         <li class="page"><a>${i}</a></li>
+                    `
+							}
+						}
+					}
+					$(".page").remove();
+					$(".prev").after(strData);
+					$("#pageSize").text(data.total);
+					$(".next").removeClass("disabled");
+					$(".prev").removeClass("disabled");
+					if (pageIndex==1){
+						$(".prev").addClass("disabled");
+					}
+					if (pageIndex==len){
+						$(".next").addClass("disabled");
+					}
+				}
+			}
+		});
+	}
+
+	$("#search-btn").click(function () {
+		page(1)
+	});
+
+	$("#dataRow").one("click",".feedback",function () {
+		var serverId = $(this).attr("data-id");
+		cookie.set("serverId",serverId);
+	});
+
+	//渲染服务类型下拉框
+	$.get("/dic/server_type",function (res) {
+		var data = "";
+		$.each(res.data,function (i,v) {
+			data += `
+					<option value="${v.valueId}">${v.valueName}</option>
+				`
+		});
+		$(data).appendTo($("#server-type select"));
+	});
+	// //渲染服务状态下拉框
+	// $.get("http://127.0.0.1:8080/dic/server_state",function (res) {
+	// 	var data = "";
+	// 	$.each(res.data,function (i,v) {
+	// 		data += `
+	// 			<option value="${v.valueId}">${v.valueName}</option>
+	// 		`
+	// 	});
+	// 	$(data).appendTo($("#server-state select"));
+	// });
+
+	//分配按钮的点击事件
+	$("#dataRow").on("click",".allot",function () {
+		var staffId = $(this).parent().prev().find("select").prop("value");
+		var staffName = $(this).parent().prev().find("select").find("option:selected").text();
+		var id = $(this).attr("data-id")
+		if (staffId!=0){
+			var data = {
+				"dueId":staffId,
+				"dueName":staffName,
+				"id":id
+			}
+			console.log(data);
+			$.ajax({
+				//http://127.0.0.1:8080/
+				url: "/server/allot",
+				type: "POST",
+				headers: {'Authorization': '' + getToken() + ''},
+				data: data,
+				success: function (result) {
+					if (result.code == 401) {
+						console.log("toke失效");
+						window.location.href = "login.html";
+						window.event.returnValue = false;
+						return false;
+					}
+					if (result.code == 1) {
+						if (res.data){
+							swal("分配成功！", "",
+									"success"
+							)
+							page(1);
+						}
+					}
+				}
+			});
+		}
+		$(this).parent().prev().find("select").css({"border-color":"red"})
+	});
+
+
+	<!--------------------日期控件的操作		-->
+	//外部js调用
+	laydate({
+		elem: '#hello', //目标元素。由于laydate.js封装了一个轻量级的选择器引擎，因此elem还允许你传入class、tag但必须按照这种方式 '#id .class'
+		event: 'focus' //响应事件。如果没有传入event，则按照默认的click
+	});
+	//日期范围限制
+	var start = {
+		elem: '#start',
+		format: 'YYYY/MM/DD hh:mm:ss',
+		min: laydate.now(), //设定最小日期为当前日期
+		max: '2099-06-16 23:59:59', //最大日期
+		istime: true,
+		istoday: false,
+		choose: function (datas) {
+			end.min = datas; //开始日选好后，重置结束日的最小日期
+			end.start = datas //将结束日的初始值设定为开始日
+		}
+	};
+	var end = {
+		elem: '#end',
+		format: 'YYYY/MM/DD hh:mm:ss',
+		min: laydate.now(),
+		max: '2099-06-16 23:59:59',
+		istime: true,
+		istoday: false,
+		choose: function (datas) {
+			start.max = datas; //结束日选好后，重置开始日的最大日期
+		}
+	};
+	laydate(start);
+	laydate(end);
+</script>
+</body>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:06 GMT -->
+</html>

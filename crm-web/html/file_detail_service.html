@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:03 GMT -->
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<title>H+ 后台主题UI框架 - Bootstrap Table</title>
+	<meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+	<meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+	<link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+	<link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+	<link href="css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+	<link href="css/animate.min.css" rel="stylesheet">
+	<link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+	<link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+
+</head>
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+
+	<!-- Panel Other -->
+	<div class="ibox float-e-margins">
+		<div class="ibox-title">
+			<h5>服务归档详情</h5>
+			<div class="ibox-tools">
+				<a class="collapse-link">
+					<i class="fa fa-chevron-up"></i>
+				</a>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+					<i class="fa fa-wrench"></i>
+				</a>
+				<ul class="dropdown-menu dropdown-user">
+					<li><a href="#">选项1</a>
+					</li>
+					<li><a href="#">选项2</a>
+					</li>
+				</ul>
+				<a class="close-link">
+					<i class="fa fa-times"></i>
+				</a>
+			</div>
+		</div>
+		<div class="ibox-content">
+			<div class="row row-lg">
+				<div class="col-sm-12">
+					<!-- Example Events -->
+					<div class="example-wrap">
+						<div class="btn-group hidden-xs pull-right" id="exampleTableEventsToolbar" role="group">
+							<a href="file_service.html">
+								<button type="button" class="btn btn-outline btn-default">
+									<i class="glyphicon glyphicon-arrow-left" aria-hidden="true" style="color:blue"></i>
+									返回
+								</button>
+							</a>
+						</div>
+
+						<table class="table table-bordered">
+							<tr>
+								<th style="background-color:#F5F5F6" width="15%">
+									<span style="color:#000">编号</span>
+								</th>
+								<td id="id" width="35%">
+								</td>
+								<th style="background-color:#F5F5F6" width="15%">
+									<span style="color:#000">服务类型</span>
+								</th>
+								<td id="type" width="35%">
+								</td>
+							</tr>
+							<tr>
+								<th style="background-color:#F5F5F6">
+									<span style="color:#000">概要</span>
+								</th>
+								<td id="title">
+								</td>
+								<th style="background-color:#F5F5F6">
+
+								</th>
+								<td>
+
+								</td>
+							</tr>
+							<tr>
+								<th style="background-color:#F5F5F6">
+									<span style="color:#000">客户</span>
+								</th>
+								<td id="custName">
+								</td>
+								<th style="background-color:#F5F5F6">
+									<span style="color:#000">状态</span>
+								</th>
+								<td id="status">
+								</td>
+							</tr>
+							<tr>
+								<th style="background-color:#F5F5F6">
+									<span style="color:#000">服务请求</span>
+								</th>
+								<td id="request" colspan="3">
+								</td>
+							</tr>
+							<tr>
+								<th style="background-color:#F5F5F6">
+									<span style="color:#000">创建人</span>
+								</th>
+								<td id="createName">
+								</td>
+								<th style="background-color:#F5F5F6">
+									<span style="color:#000">创建时间</span>
+								</th>
+								<td id="createDate">
+								</td>
+							</tr>
+						</table>
+
+						<table class="table table-bordered">
+							<tr>
+								<th style="background-color:#F5F5F6" width="15%">
+									<span style="color:#000">分配给</span>
+								</th>
+								<td id="dueName" width="35%">
+								</td>
+								<th style="background-color:#F5F5F6" width="15%">
+									<span style="color:#000">分配时间</span>
+								</th>
+								<td id="dueDate" width="35%">
+								</td>
+							</tr>
+						</table>
+
+						<table class="table table-bordered">
+							<tr>
+								<th style="background-color:#F5F5F6" width="15%">
+									<span style="color:#000">服务处理</span>
+								</th>
+								<td colspan="3" width="35%" id="deal">
+								</td>
+							</tr>
+							<tr>
+								<th style="background-color:#F5F5F6" width="15%">
+									<span style="color:#000">处理人</span>
+								</th>
+								<td  width="35%" id="dealName">
+								</td>
+								<th style="background-color:#F5F5F6" width="15%">
+									<span style="color:#000">处理时间</span>
+								</th>
+								<td id="dealDate"  width="35%">
+								</td>
+							</tr>
+							<tr>
+								<th style="background-color:#F5F5F6" width="15%">
+									<span style="color:#000">处理结果</span>
+								</th>
+								<td id="result"  width="35%">
+								</td>
+								<th style="background-color:#F5F5F6" width="15%">
+									<span style="color:#000">满意度</span>
+								</th>
+								<td id="satisfy" width="35%">
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<!-- End Example Events -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Panel Other -->
+</div>
+
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script src="js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script src="js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="js/demo/bootstrap-table-demo.min.js"></script>
+<script src="js/utils.js"></script>
+<script>
+
+
+	function getValueName(valueId) {
+		$.get("/dic/value/"+valueId,function (res) {
+			if (res!=null){
+				return res.data;
+			}
+		});
+	}
+
+	var serverId = cookie.get("serverId");
+
+	$.ajax({
+		type:"GET",
+		headers:{'Authorization':''+getToken()+''},
+		url:"/server/"+serverId,
+		success:function (res) {
+			if (res.code == 401){
+				console.log("toke失效");
+				window.location.href = "login.html";
+				window.event.returnValue = false;
+				return false;
+			}
+			if (res.code == 1){
+				var data = res.data;
+				$("#custName").text(data.custName);
+				$("#id").text(data.id);
+				$("#feedback-form input[name='id']").val(data.id);
+				$("#type").text(data.type);
+				$("#title").text(data.title);
+				$("#status").text(getValueName(data.status));
+				$("#request").text(data.request);
+				$("#createName").text(data.createName);
+				$("#createDate").text(new Date(data.createDate).Format("yyyy-MM-dd"));
+				$("#dueName").text(data.dueName);
+				$("#dueDate").text(new Date(data.dueDate).Format("yyyy-MM-dd"));
+				$("#deal").text(data.deal);
+				$("#dealName").text(data.dueName);
+				$("#satisfy").text(getSatisfy(data.satisfy));
+				$("#result").text(data.result);
+				$("#dealDate").text(new Date(data.dueDate).Format("yyyy-MM-dd"));
+			}
+		}
+	});
+
+	function getSatisfy(satisfy) {
+		var data = "";
+		for (var i = 0; i < satisfy; i++) {
+			data+= "☆";
+		}
+		return data
+	}
+</script>
+</body>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:06 GMT -->
+</html>

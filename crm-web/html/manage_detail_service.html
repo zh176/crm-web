@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:03 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>服务处理</title>
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        
+        <!-- Panel Other -->
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>服务处理详情</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#">选项1</a>
+                        </li>
+                        <li><a href="#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+						<div class="example-wrap">
+							<div class="btn-group hidden-xs pull-right" id="exampleTableEventsToolbar" role="group">
+								<a href="manage_service.html">
+									<button type="button" class="btn btn-outline btn-default">
+										<i class="glyphicon glyphicon-arrow-left" aria-hidden="true" style="color:blue"></i>
+										返回
+									</button>
+								</a>
+							</div>
+							<form id="view-form">
+								<table class="table table-bordered">
+									<tr>
+										<th style="background-color:#F5F5F6" width="15%">
+											<span style="color:#000">编号</span>
+										</th>
+										<td width="35%">
+											<input type="email" name="id" class="form-control input-sm" disabled value="编号由系统生成">
+										</td>
+										<th style="background-color:#F5F5F6" width="15%">
+											<span style="color:#000">服务类型</span>
+										</th>
+										<td width="35%" id="server-type">
+											<input type="text" disabled name="type" class="form-control input-sm" placeholder="服务类型">
+										</td>
+									</tr>
+									<tr>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">概要</span>
+										</th>
+										<td>
+											<input type="text" disabled name="title" class="form-control input-sm" placeholder="概要">
+										</td>
+										<th style="background-color:#F5F5F6">
+
+										</th>
+										<td>
+
+										</td>
+									</tr>
+									<tr>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">客户姓名</span>
+											<span id="quest-mes" style="color:red;margin-left: 30px"></span>
+										</th>
+										<td>
+											<input id="custName" disabled type="email" name="custName" class="form-control input-sm" placeholder="客户姓名">
+										</td>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">状态</span>
+										</th>
+										<td>
+											<input type="text" class="form-control input-sm" disabled value="新创建" />
+											<input type="hidden" name="status" class="form-control input-sm" value="server_create" />
+										</td>
+									</tr>
+									<tr>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">服务请求</span>
+										</th>
+										<td colspan="3">
+											<textarea name="request" disabled class="form-control" rows="3"></textarea>
+										</td>
+									</tr>
+									<tr>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">创建人</span>
+										</th>
+										<td id="creater">
+											<input name="createName" type="email" class="form-control input-sm" disabled placeholder="创建人">
+										</td>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">创建时间</span>
+										</th>
+										<td>
+											<input type="text" name="createDate" class="form-control input-sm" disabled value="创建时间" />
+										</td>
+									</tr>
+								</table>
+								<table class="table table-bordered">
+									<tr>
+										<th style="background-color:#F5F5F6" width="15%">
+											<span style="color:#000">分配给</span>
+										</th>
+										<td width="35%">
+											<input type="text" name="dueName" class="form-control input-sm" disabled value="分配者" />
+										</td>
+										<th style="background-color:#F5F5F6" width="15%">
+											<span style="color:#000">分配时间</span>
+										</th>
+										<td width="35%">
+											<input name="dueDate" type="text" class="form-control input-sm" />
+										</td>
+									</tr>
+								</table>
+							</form>
+							<form id="dispose-form">
+								<table class="table table-bordered">
+									<tr>
+										<th style="background-color:#F5F5F6" width="15%">
+											<span style="color:#000">服务处理</span>
+										</th>
+										<td colspan="3" width="35%">
+											<textarea class="form-control" rows="3" name="deal" ></textarea>
+											<input type="hidden" name="id">
+										</td>
+									</tr>
+								</table>
+							</form>
+							<table class="table table-bordered">
+								<tr>
+									<td colspan="4">
+										<div class="pull-right">
+											<input type="button" id="submit-btn"  class="btn btn-info" value="保存"/>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Panel Other -->
+    </div>
+	
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="js/demo/bootstrap-table-demo.min.js"></script>
+	<link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="js/utils.js"></script>
+	<script>
+		var serverId = cookie.get("serverId");
+		console.log(serverId);
+
+		$.ajax({
+			//http://127.0.0.1:8080/
+			url: "/server/"+serverId,
+			type: "GET",
+			headers: {'Authorization': '' + getToken() + ''},
+			success: function (res) {
+				if (res.code == 401) {
+					window.location.href = "login.html";
+					window.event.returnValue = false;
+					return false;
+				}
+				if (res.code == 1) {
+					var data = res.data;
+					$("#view-form input[name='createName']").val(data.createName);
+					$("#view-form input[name='createDate']").val(new Date(data.createDate).Format("yyyy-MM-dd"));
+					$("#view-form input[name='dueName']").val(data.dueName);
+					$("#view-form textarea[name='request']").html(data.request);
+					$("#view-form input[name='status']").val(getValueName(data.status));
+					$("#view-form input[name='title']").val(data.title);
+					$("#view-form input[name='type']").val(data.type);
+					$("#view-form input[name='custName']").val(data.custName);
+					$("#view-form input[name='dueDate']").val(new Date(data.dueDate).Format("yyyy-MM-dd"));
+					$("#view-form input[name='id']").val(data.id);
+					$("#dispose-form input[name='id']").val(data.id);
+				}
+			}
+		})
+
+
+		function getValueName(valueId) {
+			$.get("/dic/value/"+valueId,function (res) {
+				if (res!=null){
+					return res.data;
+				}
+			});
+		}
+		$("#submit-btn").click(function () {
+			var ary = $("#dispose-form").serializeArray();
+			var server = formToJson(ary);
+
+			$.ajax({
+				//http://127.0.0.1:8080/
+				url: "/server/dispose",
+				type: "POST",
+				headers: {'Authorization': '' + getToken() + ''},
+				data:server,
+				success: function (res) {
+					if (res.code == 401) {
+						window.location.href = "login.html";
+						window.event.returnValue = false;
+						return false;
+					}
+					if (res.code == 1) {
+						if (res.data){
+							swal("保存成功！","3秒后页面返回",
+									"success"
+							)
+							setTimeout(function () {
+								window.location.href = "manage_service.html"
+							},2000);
+						}
+					}
+				}
+			})
+		});
+	</script>
+</body>
+
+
+</html>

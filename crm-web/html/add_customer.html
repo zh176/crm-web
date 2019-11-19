@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:03 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>H+ 后台主题UI框架 - Bootstrap Table</title>
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+	<link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+	<script src="js/utils.js"></script>
+
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        
+        <!-- Panel Other -->
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>添加客户</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#">选项1</a>
+                        </li>
+                        <li><a href="#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+
+                    <div class="col-sm-12">
+                        <!-- Example Events -->
+                        <div class="example-wrap">
+                            <div class="example">
+								<div class="btn-group hidden-xs pull-right" id="exampleTableEventsToolbar" role="group">
+									<a href="customer_info.html">
+										<button type="button" class="btn btn-outline btn-default">
+											<i class="glyphicon glyphicon-arrow-left" aria-hidden="true" style="color:blue"></i>
+											返回
+										</button>
+									</a>
+								</div>
+                                <form id="add-form">
+
+									<table class="table table-bordered">
+										<tr>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">客户编号</span>
+											</th>
+											<td width="35%">
+												<input type="email" class="form-control input-sm" disabled value="编号由系统生成">
+											</td>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">客户名称</span>
+												<span style="color: red">*</span>
+											</th>
+											<td width="35%">
+												<input type="text" id="name" name="name" class="form-control input-sm" placeholder="客户名称" >
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">地区</span>
+												<span style="color: red">*</span>
+											</th>
+											<td>
+												<select id="region" name="region" class="form-control input-sm" style="height: 35px">
+													<option value="1">华东</option>
+													<option value="2">华西</option>
+													<option value="3">华中</option>
+													<option value="4">华南</option>
+													<option value="5">华北</option>
+												</select>
+											</td>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">客户经理</span>
+												<span style="color: red">*</span>
+											</th>
+											<td>
+												<select id="managerName" name="managerName" class="form-control input-sm" style="height: 35px">
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">客户等级</span>
+												<span style="color: red">*</span>
+											</th>
+											<td>
+												<select id="level" name="level" class="form-control input-sm" style="height: 35px">
+													<option value="1">战略合作伙伴</option>
+													<option value="2">合作伙伴</option>
+												</select>
+											</td>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000"></span>
+											</th>
+											<td>
+
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">客户满意度</span>
+												<span style="color: red">*</span>
+											</th>
+											<td>
+												<select id="satisfy" name="satisfy" class="form-control input-sm">
+													<option value="5">☆☆☆☆☆</option>
+													<option value="4">☆☆☆☆</option>
+													<option value="3">☆☆☆</option>
+													<option value="2">☆☆</option>
+													<option value="1">☆</option>
+												</select>
+											</td>
+											<th  style="background-color:#F5F5F6">
+												<span style="color:#000">客户信用度</span>
+												<span style="color: red">*</span>
+											</th>
+											<td>
+												<select id="credit" name="credit" class="form-control input-sm">
+													<option value="5">☆☆☆☆☆</option>
+													<option value="4">☆☆☆☆</option>
+													<option value="3">☆☆☆</option>
+													<option value="2">☆☆</option>
+													<option value="1">☆</option>
+												</select>
+											</td>
+										</tr>
+									</table>
+
+									<table class="table table-bordered">
+										<tr>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">电话</span>
+												<span style="color: red">*</span>
+											</th>
+											<td>
+												<input type="text" id="tel" name="tel" class="form-control input-sm" placeholder="电话">
+											</td>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">邮政编码</span>
+											</th>
+											<td width="35%">
+												<input type="text" id="zip" name="zip" class="form-control input-sm" placeholder="邮政编码">
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">网址</span>
+												<span style="color: red">*</span>
+											</th>
+											<td>
+												<input type="text" id="website" name="website" class="form-control input-sm" placeholder="网址"/>
+											</td>
+											<th style="background-color:#F5F5F6">
+												<span style="color:#000">传真</span>
+											</th>
+											<td>
+												<input type="text" id="fax" name="fax" class="form-control input-sm" placeholder="传真">
+											</td>
+										</tr>
+									</table>
+
+									<table class="table table-bordered">
+										<tr>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">营业执照注册号</span>
+												<span style="color: red">*</span>
+											</th>
+											<td  width="35%">
+												<input type="text" id="licenceNo" name="licenceNo" class="form-control input-sm" placeholder="营业执照注册号">
+											</td>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">法人</span>
+												<span style="color: red">*</span>
+											</th>
+											<td  width="35%">
+												<input type="text" id="chieftain" name="chieftain" class="form-control input-sm" placeholder="法人">
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">注册资金（万元）</span>
+												<span style="color: red">*</span>
+											</th>
+											<td  width="35%">
+												<input type="text" id="bankroll" name="bankroll" class="form-control input-sm" placeholder="注册资金（万元）">
+											</td>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">年营业额</span>
+												<span style="color: red">*</span>
+											</th>
+											<td  width="35%">
+												<input type="text" id="turnover" name="turnover" class="form-control input-sm" placeholder="年营业额">
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">开户银行</span>
+												<span style="color: red">*</span>
+											</th>
+											<td  width="35%">
+												<input type="text" id="bank" name="bank" class="form-control input-sm" placeholder="开户银行">
+											</td>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">银行帐号</span>
+												<span style="color: red">*</span>
+											</th>
+											<td  width="35%">
+												<input type="text" id="bankAccount" name="bankAccount" class="form-control input-sm" placeholder="银行帐号">
+											</td>
+										</tr>
+										<tr>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">国税登记号</span>
+												<span style="color: red">*</span>
+											</th>
+											<td  width="35%">
+												<input type="text" id="nationalTaxNo" name="nationalTaxNo" class="form-control input-sm" placeholder="国税登记号">
+											</td>
+										</tr>
+										<tr>
+											<td colspan="4">
+												<div class="pull-right">
+													<button type="button" id="add"  class="btn btn-info">保存</button>
+												</div>
+											</td>
+										</tr>
+									</table>
+
+								</form>
+
+                            </div>
+                        </div>
+                        <!-- End Example Events -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Panel Other -->
+    </div>
+	
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="js/demo/bootstrap-table-demo.min.js"></script>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+	<script>
+
+		var customerManger = getUSerByRoleId(3);
+		console.log(customerManger);
+		$(customerManger).appendTo($("#managerName"))
+
+		$("#add").click(function () {
+            var a=$("#add-form").serializeArray()
+            var data=formToJson(a)
+
+			$.ajax({
+				//http://127.0.0.1:8080/
+				url:"/client/add",
+				type:"post",
+				data:data,
+				headers:{'Authorization':''+getToken()+''},
+				success:function (result) {
+					if (result.code == 401){
+						console.log("toke失效");
+						window.location.href = "login.html";
+						window.event.returnValue = false;
+						return false;
+					}
+					if (result.code == 1){
+						if (result.data){
+							swal("添加成功！","",
+									"success"
+							);
+							$("#add-form input[type='text']").val("");
+						}
+					}
+				}
+			});
+        });
+
+	</script>
+
+</body>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:06 GMT -->
+</html>

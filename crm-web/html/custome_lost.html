@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:03 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>客户流失管理</title>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+	<link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <!-- Panel Other -->
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>客户流失管理</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#">选项1</a>
+                        </li>
+                        <li><a href="#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+			<div class="ibox-content">
+				<div class="row row-lg">
+
+					<div class="col-sm-12">
+						<!-- Example Events -->
+						<div class="example-wrap">
+							<div class="example">
+								<div class="pull-left" style="margin-bottom:12px;">
+									<form class="form-inline" id="search-form">
+										<div class="form-group">
+											<label>客户</label>
+											<input type="text" name="name" class="form-control input-sm" placeholder="客户名称">
+										</div>
+										<div class="form-group" style="margin-left:10px">
+											<label>客户经理</label>
+											<input type="text" name="managerName" class="form-control input-sm" placeholder="客户经理">
+										</div>
+										<div class="form-group" style="margin-left:10px">
+											<label>状态</label>
+											<select id="lost_type" class="form-control input-sm" name="status" style="height: 35px">
+											</select>
+										</div>
+									</form>
+								</div>
+								<div class="btn-group hidden-xs pull-right" id="exampleTableEventsToolbar" role="group">
+									<button type="button" id="search-btn" class="btn btn-outline btn-default">
+										<i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+										搜索
+									</button>
+								</div>
+								<table class="table table-bordered table-hover"
+									   data-height="400"
+									   style="margin-bottom:0px"
+									   data-mobile-responsive="true">
+									<thead>
+									<tr>
+										<th>编号</th>
+										<th>客户名称</th>
+										<th>客户经理</th>
+										<th>上次下单时间</th>
+										<th>确认流失时间</th>
+										<th>状态</th>
+										<th>
+											<div align="center">操作</div>
+										</th>
+									</tr>
+									</thead>
+									<tbody id="dataRow">
+									</tbody>
+								</table>
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="pull-left" style="margin-top:15px">
+											<p>显示 1 到 10 项，共 <lable id="pageSize"></lable> 项</p>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="pull-right">
+											<ul class="pagination">
+												<li class="prev"><a>«</a></li>
+												<li  class="next"><a>»</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<!-- End Example Events -->
+					</div>
+
+				</div>
+			</div>
+        </div>
+        <!-- End Panel Other -->
+    </div>
+	
+	
+	<!-- ****************************确认流失框**************************** -->
+	<div class="modal inmodal" id="myModal3" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" style="width:800px;margin-top:50px;">
+			<div class="modal-content animated flipInY">
+				<div class="modal-header" style="height:50px;padding-top:15px;">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+					<div class="pull-left"><h4>确认流失</h4></div>
+				</div>
+				<div class="modal-body" style="background-color:#fff;padding-bottom:0px;padding-top:10px;">
+					<form id="affirm-lost">
+						<table class="table table-bordered">
+							<tr>
+								<th style="background-color:#F5F5F6" width="15%">
+									<span style="color:#000">编号</span>
+									<input type="hidden" name="id">
+								</th>
+								<td width="35%">
+									<input type="text" placeholder="编号自动生成" disabled >
+								</td>
+								<th style="background-color:#F5F5F6" width="15%">
+									<span style="color:#000">客户</span>
+								</th>
+								<td width="35%">
+									<span id="custNo1"></span>
+									<input type="hidden" name="custNo" >
+								</td>
+							</tr>
+							<tr>
+								<th style="background-color:#F5F5F6">
+									<span style="color:#000">客户经理</span>
+								</th>
+								<td>
+									<span id="custManagerId1"></span>
+									<input type="hidden" name="custManagerId" >
+								</td>
+								<th style="background-color:#F5F5F6">
+									<span style="color:#000">上次下单时间</span>
+								</th>
+								<td>
+									<span id="lastOrderDate1"></span>
+									<input type="hidden" name="time">
+								</td>
+							</tr>
+							<tr id="defer-step2">
+								<th style="background-color:#F5F5F6">
+									<span style="color:#000">暂缓措施</span>
+								</th>
+								<td id="defer-step3" colspan="3">
+								</td>
+							</tr>
+							<tr>
+								<th style="background-color:#F5F5F6">
+									<span style="color:#000">确认流失原因</span>
+								</th>
+								<td colspan="3">
+									<textarea class="form-control" name="reason" rows="6"></textarea>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					<button id="affirm-btn" type="button" class="btn btn-primary">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ****************************确认流失框结束**************************** -->
+	
+	<!-- ****************************暂缓流失框**************************** -->
+	<div class="modal inmodal" id="myModal4" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" style="width:800px;margin-top:50px;">
+			<div class="modal-content animated flipInY">
+				<div class="modal-header" style="height:50px;padding-top:15px;">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+					<div class="pull-left"><h4>暂缓流失</h4></div>
+				</div>
+				<div class="modal-body" style="background-color:#fff;padding-bottom:0px;padding-top:10px;">
+					<form id="defer-lost">
+						<table class="table table-bordered">
+							<tr>
+								<th style="background-color:#F5F5F6" width="15%">
+									<span style="color:#000">编号</span>
+									<input type="hidden" name="">
+								</th>
+								<td width="35%">
+									<input type="text" placeholder="编号自动生成" disabled >
+								</td>
+								<th style="background-color:#F5F5F6" width="15%">
+									<span style="color:#000">客户</span>
+								</th>
+								<td width="35%">
+									<span id="custNo"></span>
+									<input type="hidden" name="custNo" >
+								</td>
+							</tr>
+							<tr>
+								<th style="background-color:#F5F5F6">
+									<span style="color:#000">客户经理</span>
+								</th>
+								<td>
+									<span id="custManagerId"></span>
+									<input type="hidden" name="custManagerId" >
+								</td>
+								<th style="background-color:#F5F5F6">
+									<span style="color:#000">上次下单时间</span>
+								</th>
+								<td>
+									<span id="lastOrderDate"></span>
+									<input type="hidden" name="time">
+								</td>
+							</tr>
+							<tr id="defer-step">
+								<th style="background-color:#F5F5F6">
+									<span style="color:#000">暂缓措施</span>
+								</th>
+								<td id="defer-step1" colspan="3">
+								</td>
+							</tr>
+							<tr>
+							<th style="background-color:#F5F5F6">
+								<span style="color:#000">添加暂缓措施</span>
+							</th>
+							<td colspan="3">
+								<textarea class="form-control" name="delay" rows="6"></textarea>
+							</td>
+						</tr>
+					</table>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					<button id="defer-btn" type="button" class="btn btn-primary">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ****************************暂缓流失框结束**************************** -->
+	
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="js/demo/bootstrap-table-demo.min.js"></script>
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="js/utils.js"></script>
+
+	<script>
+		//-------------渲染状态下拉框
+		$.get("/dic/lost_type",function (res) {
+			var data = "";
+			$.each(res.data,function (i,v) {
+				data += `
+					<option value="${v.valueId}">${v.valueName}</option>
+				`
+			});
+			$(data).appendTo($("#lost_type"));
+			page(1);
+		});
+
+		//-------------搜索按钮
+		$("#search-btn").click(function () {
+			page(1);
+		});
+
+		//-------------页码点击事件
+		$(".pagination").on("click",".page a",function (event) {
+			var pageIndex1 = $(".active").text();
+			var pageIndex = $(this).text();
+			if (pageIndex1!=pageIndex){
+				page(pageIndex);
+			}
+		});
+
+		//-------------上一页点击
+		$(".prev").click(function () {
+			var pageIndex = $(".active").text();
+			page(pageIndex-1)
+		});
+
+		//-------------下一页点击
+		$(".next").click(function () {
+			var pageIndex = $(".active").text();
+			page(Number(pageIndex)+1)
+		});
+
+		//-------------翻页
+		function page(pageIndex) {
+			if (isNaN(pageIndex)){
+				return false;
+			}
+			var str = $("#search-form").serializeArray();
+			var searchCondition = formToJson(str);
+			var condition = JSON.stringify(searchCondition);
+			var pageSize = 10;
+			var pageParam = {
+				"pageIndex":pageIndex,
+				"pageSize":pageSize,
+				"condition":condition
+			};
+			$.ajax({
+				//http://127.0.0.1:8080/
+				url:"/customer/all/",
+				type:"GET",
+				data: pageParam,
+				async:false,
+				headers:{'Authorization':''+getToken()+''},
+				success:function (result) {
+					if (result.code == 401){
+						window.location.href = "login.html";
+						window.event.returnValue = false;
+						return false;
+					}
+					if (result.code == 1){
+						var data = result.data;
+						//---------------------渲染数据
+						var tableData = "";
+						$.each(data.records,function (i,v) {
+							tableData += `
+                                <tr class="dataRow">
+                                    <td>${i + 1}</td>
+									<td>${v.custNo}</td>
+									<td>${v.custManagerId}</td>
+									<td>${new Date(v.lastOrderDate).Format("yyyy-MM-dd")}</td>
+									<td>${parseNull(v.lostDate)}</td>
+									<td>${v.status == null ? "流失预警" : valueIdMathName(valueNames,v.status)}</td>
+                                    <td align="center">
+                                        <div>
+											${screenBtn(searchCondition.status,v)}
+										</div>
+                                    </td>
+                                </tr>
+                            `;
+						});
+						$("#dataRow").empty();
+						$(tableData).appendTo($("#dataRow"))
+
+						//---------------------渲染分页按钮
+						var dataCount = data.total;
+						var pageSize = data.pageSize
+						var len = 0;
+						if ((dataCount%pageSize)==0){
+							len = parseInt(dataCount/pageSize);
+						}else {
+							len =parseInt((dataCount/pageSize)+1)
+						}
+						//拼接的字符串
+						var strData = "";
+						if (Number(pageIndex)+2<=len && pageIndex-2>=1){
+							strData += `
+                        <li class="page"><a>${pageIndex-2}</a></li>
+                        <li class="page"><a>${pageIndex-1}</a></li>
+                        <li class="active page"><a>${pageIndex}</a></li>
+                        <li class="page"><a>${Number(pageIndex)+Number(1)}</a></li>
+                        <li class="page"><a>${Number(pageIndex)+Number(2)}</a></li>
+
+                    `;
+						}else {
+							var i = pageIndex;
+							if (Number(i)+5>len){
+								i=len-4;
+							}
+							if (len-5<=1){
+								i=1;
+							}
+							for (;i<Number(pageIndex)+5 & i<=len;i++){
+								if (i==data.pageIndex){
+									strData+= `
+                                                 <li class="active page"><a>${i}</a></li>
+                                            `
+								}else {
+									strData+= `
+                                                 <li class="page"><a>${i}</a></li>
+                                            `
+								}
+							}
+						}
+						$(".page").remove();
+						$(".prev").after(strData);
+						$("#pageSize").text(data.total);
+						$(".next").removeClass("disabled");
+						$(".prev").removeClass("disabled");
+						if (pageIndex==1){
+							$(".prev").addClass("disabled");
+						}
+						if (pageIndex==len){
+							$(".next").addClass("disabled");
+						}
+					}
+				}
+			});
+		}
+
+		//-------------暂缓流失按钮
+		$("#dataRow").on("click",".glyphicon-time",function () {
+
+
+			var lostId = $(this).attr("data-id");
+			if (lostId!="null"){
+				$.ajax({
+					url:"/customer/"+lostId+"",
+					type:"GET",
+					async:false,
+					headers:{"Authorization":''+getToken()+''},
+					success:function (res) {
+						var v = res.data;
+
+						$("#custNo").text(getClientName(v.custNo))
+						$("#custManagerId").text(getUserName(v.custManagerId))
+						$("#lastOrderDate").text(new Date(v.lastOrderDate).Format("yyyy年MM月dd日"));
+						console.log(v.dealy);
+						$("#defer-step1").text(v.delay)
+
+						$("#defer-lost input[name='custNo']").val(v.custNo)
+						$("#defer-lost input[name='custManagerId']").val(v.custManagerId)
+						$("#defer-lost input[name='time']").val(v.lastOrderDate)
+					}
+				});
+				return true;
+			}
+
+			var customerId = $(this).attr("customer-id");
+			var mangerId = $(this).attr("manger-id");
+			var lastOrderDate = $(this).attr("time");
+
+			$("#custNo").text(getClientName(customerId))
+			$("#custManagerId").text(getUserName(mangerId))
+			$("#lastOrderDate").text(new Date(window.parseInt(lastOrderDate)).Format("yyyy年MM月dd日"));
+
+
+			$("#defer-lost input[name='custNo']").val(customerId)
+			$("#defer-lost input[name='custManagerId']").val(mangerId)
+			$("#defer-lost input[name='time']").val(lastOrderDate)
+		});
+
+		//确认流失框按钮
+		$("#dataRow").on("click",".glyphicon-ok-circle",function (){
+			var lostId = $(this).attr("data-id");
+			if (lostId!="null"){
+				$.ajax({
+					url:"/customer/"+lostId+"",
+					type:"GET",
+					async:false,
+					headers:{"Authorization":''+getToken()+''},
+					success:function (res) {
+						var v = res.data;
+
+						$("#custNo1").text(getClientName(v.custNo))
+						$("#custManagerId1").text(getUserName(v.custManagerId))
+						$("#lastOrderDate1").text(new Date(v.lastOrderDate).Format("yyyy年MM月dd日"));
+						$("#defer-step3").text(v.delay)
+
+						$("#affirm-lost input[name='custNo']").val(v.custNo)
+						$("#affirm-lost input[name='custManagerId']").val(v.custManagerId)
+						$("#affirm-lost input[name='time']").val(v.lastOrderDate)
+						$("#affirm-lost input[name='id']").val(lostId)
+					}
+				});
+				return true;
+			}
+
+		});
+
+		//确认流失的保存按钮
+		$("#affirm-btn").click(function () {
+			var ary = $("#affirm-lost").serializeArray();
+			console.log(ary);
+			var param = formToJson(ary);
+			console.log(param);
+			$.ajax({
+				url:"/customer/affirm",
+				type:"POST",
+				headers:{"Authorization":''+getToken()+''},
+				data:param,
+				success:function (res) {
+					if (res.data){
+						swal("保存成功！", "",
+								"success"
+						)
+						$("#defer-lost textarea").val("");
+						$(".modal-backdrop").hide();
+						$("#myModal3").removeClass("in").hide()
+						page(1)
+					}
+
+				}
+			});
+
+		});
+
+		//暂缓流失的保存按钮
+		$("#defer-btn").click(function () {
+		    var ary = $("#defer-lost").serializeArray();
+            var param = formToJson(ary);
+            var deferStep1 = $("#defer-step1").text();
+            param.delay += deferStep1;
+            console.log(param);
+            $.ajax({
+                url:"/customer/add",
+                type:"POST",
+                headers:{"Authorization":''+getToken()+''},
+                data:param,
+                success:function (res) {
+                    if (res.data){
+                        swal("保存成功！", "",
+                            "success"
+                        )
+                        $("#defer-lost textarea").val("");
+                        $("#defer-lost input[type='text']").val("");
+                        $(".modal-backdrop").hide();
+                        $("#myModal4").removeClass("in").hide()
+						page(1);
+                    }
+
+                }
+            });
+
+        });
+
+		function getUserName(userId) {
+			var data;
+			$.ajaxSettings.async=false;
+			$.get("/user/name/"+userId+"",function (res) {
+				data = res.data;
+			});
+            $.ajaxSettings.async=true;
+            console.log(data);
+			return data;
+		}
+
+		function getClientName(clientId){
+			var data;
+			$.ajax({
+				url:"/client/get/"+clientId+"",
+				type:"GET",
+				async:false,
+				headers:{'Authorization':''+getToken()+''},
+				success:function (res) {
+					data = res.data.name;
+				}
+			});
+			return data;
+		}
+
+		var valueNames = getValueNameByDIcType("lost_type");
+		function parseNull(str) {
+			var data;
+			if (str == null){
+				data = "----_--_--"
+			}else {
+				data = new Date().Format("yyyy-MM-dd")
+			}
+			return data;
+		}
+
+		//根据状态id渲染按钮
+		function screenBtn(statusId,v){
+			var data;
+
+			if (statusId == "lost_early"){
+				data = `
+					<a title="暂缓流失" data-toggle="modal" data-target="#myModal4" style="color:#CC6600">
+						<i data-id="${v.id}" time="${v.lastOrderDate}" customer-id="${isNaN(v.delay) ? '':v.delay}" manger-id="${isNaN(v.reason) ? '':v.reason}"  class="glyphicon glyphicon-time" aria-hidden="true"></i>
+					</a>
+				`;
+			}
+			if (statusId == "lost_defer"){
+				data = `
+					<a title="确认流失" data-toggle="modal" data-target="#myModal3" style="color:red">
+						<i data-id="${v.id}" class="glyphicon glyphicon-ok-circle" aria-hidden="true"></i>
+					</a>
+					&nbsp;&nbsp;
+					<a title="暂缓流失" data-toggle="modal" data-target="#myModal4" style="color:#CC6600">
+						<i data-id="${v.id}" time="${v.lastOrderDate}" customer-id="${isNaN(v.delay) ? '':v.delay}" manger-id="${isNaN(v.reason) ? '':v.reason}"  class="glyphicon glyphicon-time" aria-hidden="true"></i>
+					</a>
+				`;
+			}
+			// if (statusId == "lost_affirm"){
+			// 	data = `
+			// 		<a title="确认流失" data-toggle="modal" data-target="#myModal3" style="color:red">
+			// 			<i data-id="${v.id}" class="glyphicon glyphicon-ok-circle" aria-hidden="true"></i>
+			// 		</a>
+			// 		&nbsp;&nbsp;
+			// 		<a title="暂缓流失" data-toggle="modal" data-target="#myModal4" style="color:#CC6600">
+			// 			<i data-id="${v.id}" time="${v.lastOrderDate}" customer-id="${isNaN(v.delay) ? '':v.delay}" manger-id="${isNaN(v.reason) ? '':v.reason}"  class="glyphicon glyphicon-time" aria-hidden="true"></i>
+			// 		</a>
+			// 	`;
+			// }
+			return data;
+		}
+	</script>
+</body>
+</html>

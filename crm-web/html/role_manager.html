@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>角色管理</title>
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+</head>
+<body style="background: rgb(240,242,245)">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <!-- Panel Other -->
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>角色管理</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#">选项1</a>
+                        </li>
+                        <li><a href="#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+
+
+                    <div class="col-sm-12">
+                        <!-- Example Events -->
+                        <div class="example-wrap">
+                            <div class="example">
+                                <div class="pull-left" style="margin-bottom:12px;">
+                                    <form class="form-inline" role="form" id="search-form">
+                                        <div class="form-group">
+                                            <label>角色名称</label>
+                                            <input type="text" name="name" class="form-control input-sm" placeholder="请输入角色名">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="btn-group hidden-xs pull-right" id="exampleTableEventsToolbar" role="group">
+                                    <button type="button" id="search-btn" class="btn btn-outline btn-default">
+                                        <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+                                        搜索
+                                    </button>
+                                    <button type="button" id="add-btn" class="btn btn-outline btn-default" data-toggle="modal" data-target="#myModal2">
+                                        <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+                                        新建
+                                    </button>
+                                </div>
+                                <table class="table table-bordered table-hover" data-height="400" style="margin-bottom:0px" data-mobile-responsive="true">
+                                    <thead>
+                                    <tr>
+                                        <th>编号</th>
+                                        <th>角色名称</th>
+                                        <th>角色标识</th>
+                                        <th>角色介绍</th>
+                                        <th>创建时间</th>
+                                        <th>
+                                            <div align="center">操作</div>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="dataRow">
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="pull-left" style="margin-top:15px">
+                                            <p>显示 1 到 10 项，共 <lable id="page-size"></lable> 项</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="pull-right">
+                                            <ul class="pagination">
+                                                <li class="prev"><a>«</a></li>
+                                                <li class="next"><a>»</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- End Example Events -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Panel Other -->
+    </div>
+    <!--                              添加权限                                   -->
+    <div class="modal inmodal in" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true" style="display: none">
+        <div class="modal-dialog" style="width:800px;margin-top:20px;">
+            <div class="modal-content animated flipInY">
+                <form id="addForm">
+                    <div class="modal-header" style="height:50px;padding-top:15px;">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                        <div class="pull-left"><h4>添加角色</h4></div>
+                    </div>
+                    <div class="modal-body" style="background-color:#fff;padding-bottom:0px;padding-top:10px;">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th style="background-color:#F5F5F6" width="15%">
+                                    <span style="color:#000">编号</span>
+                                </th>
+                                <td width="35%">
+                                    <input type="email"  class="form-control input-sm" disabled placeholder="由系统生成">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="background-color:#F5F5F6">
+                                    <span style="color:#000">角色名称</span>
+                                </th>
+                                <td>
+                                    <input type="text" name="name" class="form-control input-sm" placeholder="角色名称">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="background-color:#F5F5F6">
+                                    <span style="color:#000">角色描述 </span>
+                                </th>
+                                <td>
+                                    <input type="tel" name="description" class="form-control input-sm" maxlength="11" placeholder="角色描述">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="background-color:#F5F5F6">
+                                    <span style="color:#000">分配角色</span>
+                                </th>
+                                <td>
+                                    <div class="checkbox checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox2" class="input-sm" autocomplete="off" value="6" style="margin-left: 0px">
+                                        <label for="inlineCheckbox2"> 权限管理 </label>
+                                    </div>
+                                    <div class="checkbox checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox3" class="input-sm" autocomplete="off" value="1" style="margin-left: 0px">
+                                        <label for="inlineCheckbox3"> 营销管理 </label>
+                                    </div>
+                                    <div class="checkbox checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox4" class="input-sm" autocomplete="off" value="2" style="margin-left: 0px">
+                                        <label for="inlineCheckbox4"> 客户管理 </label>
+                                    </div>
+                                    <div class="checkbox checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox5" class="input-sm" autocomplete="off" value="3" style="margin-left: 0px">
+                                        <label for="inlineCheckbox5"> 服务管理 </label>
+                                    </div>
+                                    <div class="checkbox checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox6" class="input-sm" autocomplete="off" value="4" style="margin-left: 0px">
+                                        <label for="inlineCheckbox6"> 统计报表 </label>
+                                    </div>
+                                    <div class="checkbox checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox7" class="input-sm" autocomplete="off" value="5" style="margin-left: 0px">
+                                        <label for="inlineCheckbox7"> 基础数据 </label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-primary">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--------------------------------修改权限------------------------------------------------------------------>
+    <div class="modal inmodal in" id="myModal3" tabindex="-1" role="dialog" aria-hidden="true" style="display: none">
+        <div class="modal-dialog" style="width:800px;margin-top:20px;">
+            <div class="modal-content animated flipInY">
+                <form id="upd-form">
+                    <div class="modal-header" style="height:50px;padding-top:15px;">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                        <div class="pull-left"><h4>添加角色</h4></div>
+                    </div>
+                    <div class="modal-body" style="background-color:#fff;padding-bottom:0px;padding-top:10px;">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th style="background-color:#F5F5F6" width="15%">
+                                    <span style="color:#000">编号</span>
+                                </th>
+                                <td width="35%">
+                                    <input type="email"  class="form-control input-sm" disabled placeholder="编号禁止修改">
+                                    <input type="hidden" name="id">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="background-color:#F5F5F6">
+                                    <span style="color:#000">角色名称</span>
+                                </th>
+                                <td>
+                                    <input type="text" name="name" class="form-control input-sm" placeholder="角色名称">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="background-color:#F5F5F6">
+                                    <span style="color:#000">角色描述 </span>
+                                </th>
+                                <td>
+                                    <input type="text" name="description" class="form-control input-sm" maxlength="11" placeholder="角色描述">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="background-color:#F5F5F6">
+                                    <span style="color:#000">分配角色</span>
+                                </th>
+                                <td id="right">
+                                    <div class="checkbox checkbox-inline">
+                                        <input type="checkbox" id="right6" class="input-sm" autocomplete="off" value="6" style="margin-left: 0px">
+                                        <label for="inlineCheckbox2"> 权限管理 </label>
+                                    </div>
+                                    <div class="checkbox checkbox-inline">
+                                        <input type="checkbox" id="right1" class="input-sm" autocomplete="off" value="1" style="margin-left: 0px">
+                                        <label for="inlineCheckbox3"> 营销管理 </label>
+                                    </div>
+                                    <div class="checkbox checkbox-inline">
+                                        <input type="checkbox" id="right2" class="input-sm" autocomplete="off" value="2" style="margin-left: 0px">
+                                        <label for="inlineCheckbox4"> 客户管理 </label>
+                                    </div>
+                                    <div class="checkbox checkbox-inline">
+                                        <input type="checkbox" id="right3" class="input-sm" autocomplete="off" value="3" style="margin-left: 0px">
+                                        <label for="inlineCheckbox5"> 服务管理 </label>
+                                    </div>
+                                    <div class="checkbox checkbox-inline">
+                                        <input type="checkbox" id="right4" class="input-sm" autocomplete="off" value="4" style="margin-left: 0px">
+                                        <label for="inlineCheckbox6"> 统计报表 </label>
+                                    </div>
+                                    <div class="checkbox checkbox-inline">
+                                        <input type="checkbox" id="right5" class="input-sm" autocomplete="off" value="5" style="margin-left: 0px">
+                                        <label for="inlineCheckbox7"> 基础数据 </label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-primary">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="js/demo/bootstrap-table-demo.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script>
+
+        page(1);
+
+        $("#addForm").submit(function () {
+            var ary = $("#addForm").serializeArray();
+            var param = formToJson(ary);
+            var right = "";
+            var roleId;
+            $.ajaxSettings.async = false;
+            $.post("http://127.0.0.1:8080/role",param,function (result) {
+                roleId = result.data;
+            });
+            $.ajaxSettings.async = true;
+            if (roleId==undefined){
+                return false;
+            }
+            $("#addForm input[type='checkbox']").each(function () {
+                if (this.checked){
+                    right += $(this).val()+",";
+                }
+
+            })
+            right = right.substring(0,right.length-1);
+            console.log(right);
+            var param1 = {
+                "roleId":roleId,
+                "rightId":right
+            };
+            $.post("http://127.0.0.1:8080/roleRight",param1,function (result) {
+                if (result.data){
+                    swal("添加成功！","",
+                        "success"
+                    );
+                    $(".modal-backdrop").hide();
+                    $("#myModal2").removeClass("in").hide()
+                    page(1);
+                }
+            });
+            return false;
+        });
+
+        $("#search-btn").click(function () {
+            page(1);
+        });
+        //-------------页码点击事件
+        $(".pagination").on("click",".page a",function (event) {
+            var pageIndex1 = $(".active").text();
+            var pageIndex = $(this).text();
+            if (pageIndex1!=pageIndex){
+                page(pageIndex);
+            }
+        });
+
+        //-------------上一页点击
+        $(".prev").click(function () {
+            var pageIndex = $(".active").text();
+            page(pageIndex-1)
+        });
+
+        //-------------下一页点击
+        $(".next").click(function () {
+            var pageIndex = $(".active").text();
+            page(Number(pageIndex)+1)
+        });
+        //翻页
+        function page(pageIndex) {
+            if (isNaN(pageIndex)){
+                return false;
+            }
+            var str = $("#search-form").serializeArray();
+            var condition = JSON.stringify(formToJson(str));
+            // var pageIndex = $(".pagination .active").text();
+            var pageSize = 10;
+            var pageParam = {
+                "pageIndex":pageIndex,
+                "pageSize":pageSize,
+                "condition":condition
+            };
+            $.get("http://localhost:8080/role/all",pageParam,function (result) {
+                var data = result.data;
+                //---------------------渲染数据
+                var tableData = "";
+                $.each(data.records,function (i,v) {
+                    tableData += `
+                        <tr class="dataRow">
+                                        <td>${i+1}</td>
+                                        <td>${v.description}</td>
+                                        <td>${v.name}</td>
+                                        <td>${v.description}</td>
+                                        <td>${v.creatTime}</td>
+                                        <td align="center">
+                                            <div>
+                                                &nbsp;&nbsp;
+                                                <a title="修改" data-toggle="modal" data-target="#myModal3" style="color:#CC6600">
+                                                    <i data-id="${v.id}" class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+                                                </a>
+                                                &nbsp;&nbsp;
+                                                <a title="删除" style="color:#CC0000">
+                                                    <i data-id="${v.id}" class="glyphicon glyphicon-remove" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                    `;
+
+                });
+                $("#dataRow").empty();
+                $(tableData).appendTo($("#dataRow"))
+
+                //---------------------渲染分页按钮
+                var dataCount = data.total;
+                var pageSize = data.pageSize
+                var len = 0;
+                if ((dataCount%pageSize)==0){
+                    len = parseInt(dataCount/pageSize);
+                }else {
+                    len =parseInt((dataCount/pageSize)+1)
+                }
+                //拼接的字符串
+                var strData = "";
+                if (Number(pageIndex)+2<=len && pageIndex-2>=1){
+                    strData += `
+                        <li class="page"><a>${pageIndex-2}</a></li>
+                        <li class="page"><a>${pageIndex-1}</a></li>
+                        <li class="active page"><a>${pageIndex}</a></li>
+                        <li class="page"><a>${Number(pageIndex)+Number(1)}</a></li>
+                        <li class="page"><a>${Number(pageIndex)+Number(2)}</a></li>
+
+                    `;
+                }else {
+                    var i = pageIndex;
+                    if (Number(i)+5>len){
+                        i=len-4;
+                    }
+                    if (len-5<=1){
+                        i=1;
+                    }
+                    for (;i<Number(pageIndex)+5 & i<=len;i++){
+                        if (i==data.pageIndex){
+                            strData+= `
+                         <li class="active page"><a>${i}</a></li>
+                    `
+                        }else {
+                            strData+= `
+                         <li class="page"><a>${i}</a></li>
+                    `
+                        }
+                    }
+                }
+                $(".page").remove();
+                $(".prev").after(strData);
+                $("#page-size").text(data.total);
+                $(".next").removeClass("disabled");
+                $(".prev").removeClass("disabled");
+                if (pageIndex==1){
+                    $(".prev").addClass("disabled");
+                }
+                if (pageIndex==len){
+                    $(".next").addClass("disabled");
+                }
+            });
+        }
+
+        //-------------修改按钮
+        $("#dataRow").on("click",".glyphicon-pencil",function () {
+            var roleId = $(this).attr("data-id");
+            $.get("http://127.0.0.1:8080/role/"+roleId+"",function (result) {
+                var role = result.data;
+                $("#upd-form input[name='id']").val(role.id);
+                $("#upd-form input[name='name']").val(role.name);
+                $("#upd-form input[name='description']").val(role.description);
+
+                $.get("http://127.0.0.1:8080/right/"+role.id+"",function (res) {
+                    $.each(res.data,function (i,v) {
+                        if (v.parentCode=="0"){
+                            console.log(v.code);
+                            $(`.checkbox input[value='${v.code}']`).prop("checked",true);
+                        }
+
+                    })
+
+                });
+            });
+        });
+
+        //  修改
+        $("#upd-form").submit(function(){
+            var ary = $("#upd-form").serializeArray();
+            var param = formToJson(ary);
+            var right = "";
+            var roleId = $("#upd-form input[name='id']").val();
+            console.log(roleId);
+            if (roleId==undefined){
+                return false;
+            }
+            $.ajaxSettings.async = false;
+            $.ajax({
+                type:"put",
+                url:"http://127.0.0.1:8080/role",
+                dataType:"json",
+                contentType:"application/json",
+                data:JSON.stringify(param),
+                success:function (res) {
+                    console.log("1 结果");
+                    console.log(res);
+
+                }
+            });
+            $.ajaxSettings.async = true;
+
+            $("#upd-form input[type='checkbox']").each(function () {
+                if (this.checked){
+                    right += $(this).val()+",";
+                }
+
+            })
+            right = right.substring(0,right.length-1);
+            console.log(right);
+            var param1 = {
+                "roleId":roleId,
+                "rightId":right
+            };
+            console.log(param1);
+            console.log(5555);
+            $.ajax({
+                type:"put",
+                url:"http://127.0.0.1:8080/roleRight/"+roleId+"&"+right+"",
+                // data:JSON.stringify(param1),
+                // dataType:"json",
+                // contentType:"application/json",
+                success:function (res) {
+                    console.log(res);
+                    if (res.data){
+                        swal("修改成功！","",
+                            "success"
+                        )
+                        $(".modal-backdrop").hide();
+                        $("#myModal3").removeClass("in").hide()
+                    }
+                }
+
+            })
+            return false;
+        });
+        //删除
+        $("#dataRow").on("click",".glyphicon-remove",function () {
+            var param = $(this).attr("data-id");
+            swal({
+                    title:"您确定要删除这条信息吗",
+                    text:"删除后将无法恢复，请谨慎操作！",
+                    type:"warning",
+                    showCancelButton:true,
+                    confirmButtonColor:"#DD6B55",
+                    confirmButtonText:"确定",
+                    cancelButtonText:"取消",
+                    closeOnConfirm:false,
+                    closeOnCancel:false},
+                function(isConfirm){
+                    if(isConfirm){
+                        console.log(111111);
+                        console.log(param);
+                        $.ajax({
+                            type:"delete",
+                            url:"http://127.0.0.1:8080/role/"+param+"",
+                            success:function (result) {
+                                console.log(result);
+                                if (result.data){
+                                    swal("删除成功！","您已经永久删除了这条信息。",
+                                        "success",
+                                    )
+                                    page(1)
+                                }else {
+                                    swal("删除失败！",result.msg,
+                                        "warning",
+                                    )
+                                    return true;
+                                }
+                            }
+                        });
+
+
+                    }else{
+                        swal("已取消",
+                            "您取消了删除操作！","error"
+                        )
+                    }
+                }
+            )
+            console.log(55555);
+            var userId = $(this).attr("data-id");
+            console.log(userId);
+            // $.get("http://127.0.0.1:8080/user/"+userId+"",function (result) {
+            // });
+        });
+    </script>
+</body>
+</html>

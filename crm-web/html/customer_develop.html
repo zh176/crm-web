@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:03 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>客户开发计划</title>
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        
+        <!-- Panel Other -->
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>客户开发计划</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#">选项1</a>
+                        </li>
+                        <li><a href="#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    
+
+                    <div class="col-sm-12">
+                        <!-- Example Events -->
+                        <div class="example-wrap">
+                            <div class="example">
+								<div class="pull-left" style="margin-bottom:12px;">
+									<form class="form-inline" role="form" id="search-form">
+										<div class="form-group">
+											<label>客户名称</label>
+											<input type="email" name="custName" class="form-control input-sm" placeholder="客户名称">
+											<input type="hidden" name="createId">
+										</div>
+										<div class="form-group" style="margin-left:10px">
+											<label>概要</label>
+											<input type="text" name="title" class="form-control input-sm" placeholder="概要">
+										</div>
+										<div class="form-group" style="margin-left:10px">
+											<label>联系人</label>
+											<input type="text" name="linkman" class="form-control input-sm" placeholder="联系人">
+											<input type="hidden" name="status" value="server_allot">
+										</div>
+									</form>
+								</div>
+								<div class="btn-group hidden-xs pull-right" id="exampleTableEventsToolbar" role="group">
+									<button type="button" class="btn btn-outline btn-default">
+										<i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+										搜索
+									</button>
+								</div>
+                                <table class="table table-bordered table-hover" 
+								       data-height="400"
+									   style="margin-bottom:0px"
+									   data-mobile-responsive="true">
+                                    <thead>
+                                        <tr>
+                                            <th>编号</th>
+                                            <th>客户名称</th>
+                                            <th>概要</th>
+											<th>联系人</th>
+											<th>联系人电话</th>
+											<th>创建时间</th>
+											<th>状态</th>
+											<th>
+												<div align="center">操作</div>
+											</th>
+                                        </tr>
+                                    </thead>
+									<tbody id="dataRow">
+
+									</tbody>
+                                </table>
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="pull-left" style="margin-top:15px">
+											<p>显示 1 到 5 项，共 <lable id="pageSize">25</lable> 项</p>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="pull-right">
+											<ul class="pagination">
+												<li class="prev"><a>«</a></li>
+												<li  class="next"><a>»</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								
+                            </div>
+                        </div>
+                        <!-- End Example Events -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Panel Other -->
+    </div>
+	
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="js/demo/bootstrap-table-demo.min.js"></script>
+	<link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script type="text/javascript">
+		function isSuc() {
+			swal("开发成功",
+					"您已经成功开发。",
+					"success"
+			)
+		};
+	</script>
+	<script src="js/utils.js"></script>
+
+	<script>
+
+		$("#search-form input[name='createId']").val(getUserId());
+
+		$("#search-but").click(function () {
+			page(1)
+			return false;
+		});
+
+		function page(pageIndex)  {
+			if (isNaN(pageIndex)){
+				return false;
+			}
+			var str = $("#search-form").serializeArray();
+			var condition = JSON.stringify(formToJson(str));
+			var pageSize = 10;
+			var pageParam = {
+				"pageIndex":pageIndex,
+				"pageSize":pageSize,
+				"condition":condition
+			};
+			console.log(pageParam);
+			$.ajax({
+				url:"/marker/all",
+				type:"GET",
+				headers:{'Authorization':''+getToken()+''},
+				data:pageParam,
+				success:function (result) {
+					var data = result.data;
+					//---------------------渲染数据
+					var tableData = "";
+					$.each(data.records,function (i,v) {
+						tableData += `
+                        <tr>
+                                            <td>${i+1}</td>
+											<td>${v.custName}</td>
+											<td style="width: 350px">${v.title}</td>
+											<td>${v.linkman}</td>
+											<td>${v.tel}</td>
+											<td>${new Date(v.createDate).Format("yyyy年MM月dd日")}</td>
+											<td>${getValue(v.status)}</td>
+
+											<td align="center">
+												<div>
+													${getBtn(v.status,v.id)}
+												</div>
+											</td>
+										</tr>
+                    `;
+
+					});
+					$("#dataRow").empty();
+					$(tableData).appendTo($("#dataRow"))
+
+					//---------------------渲染分页按钮
+					var dataCount = data.total;
+					var pageSize = data.pageSize
+					var len = 0;
+					if ((dataCount%pageSize)==0){
+						len = parseInt(dataCount/pageSize);
+					}else {
+						len =parseInt((dataCount/pageSize)+1)
+					}
+					//拼接的字符串
+					var strData = "";
+					if (Number(pageIndex)+2<=len && pageIndex-2>=1){
+						strData += `
+                        <li class="page"><a>${pageIndex-2}</a></li>
+                        <li class="page"><a>${pageIndex-1}</a></li>
+                        <li class="active page"><a>${pageIndex}</a></li>
+                        <li class="page"><a>${Number(pageIndex)+Number(1)}</a></li>
+                        <li class="page"><a>${Number(pageIndex)+Number(2)}</a></li>
+
+                    `;
+					}else {
+						var i = pageIndex;
+						if (Number(i)+5>len){
+							i=len-4;
+						}
+						if (len-5<=1){
+							i=1;
+						}
+						for (;i<Number(pageIndex)+5 & i<=len;i++){
+							if (i==data.pageIndex){
+								strData+= `
+                         <li class="active page"><a>${i}</a></li>
+                    `
+							}else {
+								strData+= `
+                         <li class="page"><a>${i}</a></li>
+                    `
+							}
+						}
+					}
+					$(".page").remove();
+					$(".prev").after(strData);
+					$("#pageSize").text(data.total);
+					$(".next").removeClass("disabled");
+					$(".prev").removeClass("disabled");
+					if (pageIndex==1){
+						$(".prev").addClass("disabled");
+					}
+					if (pageIndex==len){
+						$(".next").addClass("disabled");
+					}
+				}
+			});
+		}
+
+		//-------------页码点击事件
+		$(".pagination").on("click",".page a",function (event) {
+			var pageIndex1 = $(".active").text();
+			var pageIndex = $(this).text();
+			if (pageIndex1!=pageIndex){
+				page(pageIndex);
+			}
+		});
+
+		//-------------上一页点击
+		$(".prev").click(function () {
+			var pageIndex = $(".active").text();
+			page(pageIndex-1)
+		});
+
+		//-------------下一页点击
+		$(".next").click(function () {
+			var pageIndex = $(".active").text();
+			page(Number(pageIndex)+1)
+		});
+
+		function getValue(valueId){
+			if (valueId == "server_allot"){
+				return "开发中";
+			}
+			return "已归档";
+		}
+		function getBtn(valueId, dataId){
+			var data;
+			if (valueId == "server_allot") {
+				data = `
+					<a href="formulate_customer_develop.html" title="制定计划">
+						<i data-id="${dataId}" class="glyphicon glyphicon-book" aria-hidden="true"></i>
+					</a>
+					<a href="execute_customer_develop.html" title="执行计划" style="color:#CC6600">
+						<i data-id="${dataId}" class="glyphicon glyphicon-import" aria-hidden="true"></i>
+					</a>
+					<a onclick="isSuc();" title="开发成功" style="color:#CC0000">
+						<i data-id="${dataId}" class="glyphicon glyphicon-ok-sign" aria-hidden="true"></i>
+					</a>
+				`
+			}
+			if (valueId == "server_archive"){
+				data = `
+						<a href="look_customer_develop.html" title="查看">
+							<i data-id="${dataId}" class="glyphicon glyphicon-eye-open" aria-hidden="true"></i>
+						</a>
+					`;
+			}
+			return data;
+		}
+
+		page(1);
+
+        $("#dataRow").on("click",".glyphicon-book",function () {
+            var markerId = $(this).attr("data-id");
+            cookie.set("markerId", markerId);
+        });
+	</script>
+</body>
+</html>

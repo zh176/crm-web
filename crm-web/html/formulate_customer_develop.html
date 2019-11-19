@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_bootstrap.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:03 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>制定计划</title>
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    
+	<link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+	<script type="text/javascript">
+		function isDel() {
+			swal({title:"您确定要删除这条信息吗",
+				      text:"删除后将无法恢复，请谨慎操作！",
+					  type:"warning",
+					  showCancelButton:true,
+					  confirmButtonColor:"#DD6B55",
+					  confirmButtonText:"确定",
+					  cancelButtonText:"取消",
+					  closeOnConfirm:false,
+					  closeOnCancel:false},
+					  function(isConfirm){
+						if(isConfirm){
+							swal("删除成功！","您已经永久删除了这条信息。",
+								 "success"
+							)
+						}else{
+							swal("已取消",
+							     "您取消了删除操作！","error"
+							)
+						}
+					}
+				)
+		};
+		
+		function isSuc() {
+			swal("保存成功",
+				 "您已经成功保存。",
+				 "success"
+				)
+		};
+	</script>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        
+        <!-- Panel Other -->
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>制定开发计划</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#">选项1</a>
+                        </li>
+                        <li><a href="#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <!-- Example Events -->
+                        <div class="example-wrap">
+                            <div class="example">
+								<div class="btn-group hidden-xs pull-right" id="exampleTableEventsToolbar" role="group">
+									<button type="button" class="btn btn-outline btn-default">
+										<i class="glyphicon glyphicon-import" aria-hidden="true" style="color:#CC6600"></i>
+										执行计划
+									</button>
+									<a href="customer_develop.html">
+										<button type="button" class="btn btn-outline btn-default">
+											<i class="glyphicon glyphicon-arrow-left" aria-hidden="true" style="color:blue"></i>
+											返回
+										</button>
+									</a>
+								</div>
+                                
+								<table class="table table-bordered" id="chance">
+									<tr>
+										<th style="background-color:#F5F5F6" width="15%">
+											<span style="color:#000">编号</span>
+										</th>
+										<td  width="35%" id="id">
+										</td>
+										<th style="background-color:#F5F5F6" width="15%">
+											<span style="color:#000">机会来源</span>
+										</th>
+										<td  width="35%" id="source">
+										</td>
+									</tr>
+									<tr>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">客户名称</span>
+										</th>
+										<td id="custName">
+										</td>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">成功几率</span>
+										</th>
+										<td id="rate">
+										</td>
+									</tr>
+									<tr>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">概要</span>
+										</th>
+										<td id="title">
+										</td>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">机会描述</span>
+										</th>
+										<td id="desc">
+										</td>
+									</tr>
+									<tr>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">联系人</span>
+										</th>
+										<td id="linkman">
+										</td>
+										<th  style="background-color:#F5F5F6">
+											<span style="color:#000">联系人电话</span>
+										</th>
+										<td id="tel">
+										</td>
+									</tr>
+									<tr>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">创建人</span>
+										</th>
+										<td id="createName">
+										</td>
+										<th style="background-color:#F5F5F6">
+											<span style="color:#000">创建时间</span>
+										</th>
+										<td id="createDate">
+										</td>
+									</tr>
+								</table>
+								
+								<table class="table table-bordered">
+									
+									<thead>
+										<tr>
+											<th>日期</th>
+											<th>计划项</th>												
+										</tr>
+									</thead>
+									<tbody id="plan-pjo">
+									</tbody>
+								</table>
+
+								<form id="add-form">
+									<table class="table table-bordered">
+										<tr>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">日期</span>
+											</th>
+											<td  width="35%">
+												<input type="text" disabled name="createTime" class="form-control input-sm" placeholder="日期" >
+												<input type="hidden" name="markId">
+											</td>
+											<th style="background-color:#F5F5F6" width="15%">
+												<span style="color:#000">计划项</span>
+											</th>
+											<td  width="35%">
+												<div class="row">
+													<div class="col-sm-9">
+														<input type="text" name="todo" class="form-control input-sm" placeholder="计划项">
+													</div>
+													<div class="col-sm-3">
+														<input id="add-btn" type="button" class="btn btn-info btn-sm" value="保存">
+													</div>
+												</div>
+
+											</td>
+										</tr>
+									</table>
+								</form>
+
+                            </div>
+                        </div>
+                        <!-- End Example Events -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Panel Other -->
+    </div>
+	
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="js/demo/bootstrap-table-demo.min.js"></script>
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="js/utils.js"></script>
+	<script>
+			var  markerId= cookie.get("markerId");
+			$("#add-form input[name='markId']").val(markerId);
+			$("#add-form input[name='createTime']").val(new Date().Format("yyyy年MM月dd日"));
+			//渲染机会信息
+			$.ajax({
+				url:"/marker/list/"+markerId+"",
+				type:"GET",
+				headers:{'Authorization':''+getToken()+''},
+				success:function (result) {
+					if(result.data!= "null"){
+						var marker = result.data;
+						$("#id").text(marker.id);
+						$("#source").text(marker.source);
+						$("#custName").text(marker.custName);
+						$("#rate").text(marker.rate);
+						$("#title").text(marker.title);
+						$("#desc").text(marker.desc);
+						$("#createName").text(marker.createName);
+						$("#createDate").text(new Date(marker.createDate).Format("yyyy年MM月dd日"));
+						$("#linkman").text(marker.linkman);
+						$("#tel").text(marker.tel);
+					}
+				}
+			});
+
+			//渲染计划项
+			var data1 = "";
+			$.ajax({
+				url:"/plane/"+markerId+"",
+				type:"GET",
+				async:false,
+				headers:{'Authorization':''+getToken()+''},
+				success:function (result) {
+					if(result.data!= "null"){
+						var res = result.data;
+						$.each(res,function (i,v) {
+							data1 += `
+								<tr>
+									<th>
+										<span style="color:#000">${new Date(v.createTime).Format("yyyy年MM月dd日")}</span>
+									</th>
+									<td>
+										<div class="row">
+											<div class="col-sm-9">
+												<input type="text" class="form-control input-sm" value="${v.todo}">
+											</div>
+											<div class="col-sm-3">
+												<input data-id="${v.id}" disabled  type="button" class="btn btn-warning btn-sm" value="保存">
+												<input data-id="${v.id}" type="button" class="btn btn-danger btn-sm" value="删除">
+											</div>
+										</div>
+									</td>
+								</tr>
+							`;
+						})
+						$(data1).appendTo($("#plan-pjo"));
+					}
+				}
+			});
+
+			//添加计划项按钮
+			$("#add-btn").click(function () {
+				var ary = $("#add-form").serializeArray();
+				var param = formToJson(ary);
+				$.ajax({
+					url:"/plane/add",
+					type:"POST",
+					headers:{'Authorization':''+getToken()+''},
+					data:param,
+					success:function (res) {
+						if(res.data > 0){
+							isSuc();
+							$("#add-form input[type='text']").val("");
+
+							var data = `
+								<tr>
+									<th>
+										<span style="color:#000">${new Date().Format("yyyy年MM月dd日")}</span>
+									</th>
+									<td>
+										<div class="row">
+											<div class="col-sm-9">
+												<input type="text" class="form-control input-sm" value="${param.todo}">
+											</div>
+											<div class="col-sm-3">
+												<input data-id="${res.data}" type="button" disabled class="btn btn-warning btn-sm" value="保存">
+												<input type="button" class="btn btn-danger btn-sm" value="删除">
+											</div>
+										</div>
+									</td>
+								</tr>
+							`;
+							$(data).appendTo($("#plan-pjo"));
+						}
+					}
+				});
+			});
+
+			$("#plan-pjo").on("input onchange",function (e) {
+				$(e.target).parent().next().children(".btn-warning").removeAttr("disabled")
+			})
+			//计划项的保存按钮
+			$("#plan-pjo").on("click",".btn-warning",function (e) {
+				var $1 = $(this);
+				var todo = $(this).parent().prev().children("input").val();
+				var planeId = $(this).attr("data-id");
+
+				var param = {
+					id:""+planeId+"",
+					todo:""+todo+""
+				};
+				$.ajax({
+					url:"/plane/upd",
+					type:"PUT",
+					headers:{'Authorization':''+getToken()+''},
+					data:param,
+					success:function (res) {
+						if(res.data){
+							$1.attr("disabled","disabled")
+						}
+					}
+				});
+			})
+
+			//删除按钮
+			$("#plan-pjo").on("click",".btn-danger",function (e) {
+				var $1 = $(this);
+				swal({
+							title:"您确定要删除这条信息吗",
+							text:"删除后将无法恢复，请谨慎操作！",
+							type:"warning",
+							showCancelButton:true,
+							confirmButtonColor:"#DD6B55",
+							confirmButtonText:"确定",
+							cancelButtonText:"取消",
+							closeOnConfirm:false,
+							closeOnCancel:false},
+						function(isConfirm){
+							if(isConfirm){
+								var planeId = $1.attr("data-id");
+								$.ajax({
+									url:"/plane/del/"+planeId,
+									type:"DELETE",
+									headers:{'Authorization':''+getToken()+''},
+									success:function (result) {
+										if (result.data){
+											swal("删除成功！","您已经永久删除了这条信息。",
+													"success",
+											);
+											$1.parents("tr").remove();
+										}else {
+											swal("删除失败！",result.msg,
+													"warning",
+											);
+											return true;
+										}
+									}
+								});
+
+
+							}else{
+								swal("已取消",
+										"您取消了删除操作！","error"
+								)
+							}
+						}
+				)
+
+			})
+	</script>
+</body>
+</html>

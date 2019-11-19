@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/contacts.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:18:21 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>H+ 后台主题UI框架 - 联系人</title>
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+
+	<link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script type="text/javascript">
+		function isDel() {
+			swal({title:"您确定要删除这条信息吗",
+				      text:"删除后将无法恢复，请谨慎操作！",
+					  type:"warning",
+					  showCancelButton:true,
+					  confirmButtonColor:"#DD6B55",
+					  confirmButtonText:"确定",
+					  cancelButtonText:"取消",
+					  closeOnConfirm:false,
+					  closeOnCancel:false},
+					  function(isConfirm){
+						if(isConfirm){
+							swal("删除成功！","您已经永久删除了这条信息。",
+								 "success"
+							)
+						}else{
+							swal("已取消",
+							     "您取消了删除操作！","error"
+							)
+						}
+					}
+				)
+		};
+	</script>
+	
+</head>
+
+<body class="gray-bg">
+	<div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>联系人</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#">选项1</a>
+                        </li>
+                        <li><a href="#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content" style="background-color:#F3F3F4">
+			<div class="row row-lg">
+                    <div class="col-sm-12">
+                        <!-- Example Events -->
+                        <div class="example-wrap">
+                            <div class="example">
+	<div>
+		<div class="btn-group hidden-xs" style="margin:0px 0px 0px 20px;" id="exampleTableEventsToolbar" role="group">
+			<button type="button" data-toggle="modal" data-target="#myModal4" class="btn btn-outline btn-default" style="background-color:#fff">
+				<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+				新增
+			</button>
+			<button type="button" class="btn btn-outline btn-default" style="background-color:#fff">
+				<i class="glyphicon glyphicon-arrow-left" aria-hidden="true" style="color:blue"></i>
+				返回
+			</button>
+		</div>
+	<div>
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="contact-box">
+                    <a data-toggle="modal" data-target="#myModal3">
+                        <div class="col-sm-4">
+                            <div class="text-center">
+                                <img alt="image" class="img-circle m-t-xs img-responsive" src="img/a2.jpg">
+                                <div class="m-t-xs font-bold">CTO</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <h3><strong>奔波儿灞</strong></h3>
+                            <p><i class="fa fa-map-marker"></i> 甘肃·兰州</p>
+                            <address>
+                            <strong>Baidu, Inc.</strong><br>
+                            E-mail:xxx@baidu.com<br>
+                            Weibo:<a href="#">http://weibo.com/xxx</a><br>
+                            <abbr title="Phone">Tel:</abbr> (123) 456-7890
+                        </address>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="contact-box">
+                    <a data-toggle="modal" data-target="#myModal3">
+                        <div class="col-sm-4">
+                            <div class="text-center">
+                                <img alt="image" class="img-circle m-t-xs img-responsive" src="img/a1.jpg">
+                                <div class="m-t-xs font-bold">营销总监</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <h3><strong>灞波儿奔</strong></h3>
+                            <p><i class="fa fa-map-marker"></i> 四川·成都</p>
+                            <address>
+                            <strong>Taobao, Inc.</strong><br>
+                            E-mail:xxx@taobao.com<br>
+                            Weibo:<a href="#">http://weibo.com/xxx</a><br>
+                            <abbr title="Phone">Tel:</abbr> (123) 456-7890
+                        </address>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="contact-box">
+                    <a data-toggle="modal" data-target="#myModal3">
+                        <div class="col-sm-4">
+                            <div class="text-center">
+                                <img alt="image" class="img-circle m-t-xs img-responsive" src="img/a3.jpg">
+                                <div class="m-t-xs font-bold">Marketing manager</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <h3><strong>Monica Smith</strong></h3>
+                            <p><i class="fa fa-map-marker"></i> 上海市闵行区绿地科技岛广场A座2606室</p>
+                            <address>
+                            <strong>Baidu, Inc.</strong><br>
+                            E-mail:xxx@baidu.com<br>
+                            Weibo:<a href="#">http://weibo.com/xxx</a><br>
+                            <abbr title="Phone">Tel:</abbr> (123) 456-7890
+                        </address>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="contact-box">
+                    <a data-toggle="modal" data-target="#myModal3">
+                        <div class="col-sm-4">
+                            <div class="text-center">
+                                <img alt="image" class="img-circle m-t-xs img-responsive" src="img/a1.jpg">
+                                <div class="m-t-xs font-bold">CEO</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <h3><strong>慕容晓晓</strong></h3>
+                            <p><i class="fa fa-map-marker"></i> 上海市闵行区绿地科技岛广场A座2606室</p>
+                            <address>
+                            <strong>Baidu, Inc.</strong><br>
+                            E-mail:xxx@baidu.com<br>
+                            Weibo:<a href="#">http://weibo.com/xxx</a><br>
+                            <abbr title="Phone">Tel:</abbr> (123) 456-7890
+                        </address>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="contact-box">
+                    <a data-toggle="modal" data-target="#myModal3">
+                        <div class="col-sm-4">
+                            <div class="text-center">
+                                <img alt="image" class="img-circle m-t-xs img-responsive" src="img/a2.jpg">
+                                <div class="m-t-xs font-bold">射鸡师</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <h3><strong>高圆圆</strong></h3>
+                            <p><i class="fa fa-map-marker"></i> 上海市闵行区绿地科技岛广场A座2606室</p>
+                            <address>
+                            <strong>Baidu, Inc.</strong><br>
+                            E-mail:xxx@baidu.com<br>
+                            Weibo:<a href="#">http://weibo.com/xxx</a><br>
+                            <abbr title="Phone">Tel:</abbr> (123) 456-7890
+                        </address>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- ****************************修改联系人框**************************** -->
+	<div class="modal inmodal" id="myModal3" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" style="width:400px;margin-top:65px;">
+			<div class="modal-content animated flipInY">
+				<div class="modal-header" style="height:50px;padding-top:15px;">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+					<div class="pull-left"><h4>修改联系人</h4></div>
+				</div>
+				<div class="modal-body" style="background-color:#fff;padding-bottom:0px;padding-top:10px;">
+					<form>
+                            <div class="form-group">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >姓名</span>
+                                    <input type="text" class="form-control" value="奔波儿灞"/>
+                                </div>
+                            </div>
+                            <div class="form-group" style="width:150px">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >性别</span>
+                                    <select class="form-control">
+                                    	<option>男</option>
+                                        <option>女</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" style="width:150px">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >职位</span>
+                                    <input type="text" 
+                                    	   class="form-control" 
+                                           value="CTO"/>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group form-group-sm">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >办公电话</span>
+                                    <input type="text" class="form-control" value="456-890"/>
+                                </div>
+                            </div>
+							
+							<div class="form-group form-group-sm">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >手机</span>
+                                    <input type="text" class="form-control"  value="1684749839847"/>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group form-group-sm">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >备注</span>
+                                    <input type="text" class="form-control" value="无"/>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group form-group-sm">
+                                <input type="submit" class="btn btn-info" value="修改">
+                                <input type="reset" onclick="isDel();" class="btn btn-danger" value="删除"/>
+                            </div>
+                            
+                        </form> 
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	<!-- ****************************修改联系人框结束**************************** -->
+	
+	<!-- ****************************新增联系人框**************************** -->
+	<div class="modal inmodal" id="myModal4" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" style="width:400px;margin-top:65px;">
+			<div class="modal-content animated flipInY">
+				<div class="modal-header" style="height:50px;padding-top:15px;">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+					<div class="pull-left"><h4>新增联系人</h4></div>
+				</div>
+				<div class="modal-body" style="background-color:#fff;padding-bottom:0px;padding-top:10px;">
+					<form>
+                            <div class="form-group">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >姓名</span>
+                                    <input type="text" class="form-control" placeholder="昵称"/>
+                                </div>
+                            </div>
+                            <div class="form-group" style="width:150px">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >性别</span>
+                                    <select class="form-control">
+                                    	<option>男</option>
+                                        <option>女</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" style="width:150px">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >职位</span>
+                                    <input type="text" 
+                                    	   class="form-control" 
+                                           placeholder="职位"/>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group form-group-sm">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >办公电话</span>
+                                    <input type="text" class="form-control" placeholder="办公电话"/>
+                                </div>
+                            </div>
+							
+							<div class="form-group form-group-sm">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >手机</span>
+                                    <input type="text" class="form-control" placeholder="手机"/>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group form-group-sm">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" >备注</span>
+                                    <input type="text" class="form-control" placeholder="地址"/>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group form-group-sm">
+                                <input type="submit" class="btn btn-info" value="保存">
+                            </div>
+                            
+                        </form> 
+				</div>
+			</div>
+		</div>
+	
+	<!-- ****************************新增联系人框结束**************************** -->
+	
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script>
+        $(document).ready(function(){$(".contact-box").each(function(){animationHover(this,"pulse")})});
+    </script>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+</body>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/contacts.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:18:21 GMT -->
+</html>
